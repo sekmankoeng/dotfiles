@@ -14,6 +14,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'romainl/vim-cool'
 Plug 'sheerun/vim-polyglot' " Add vim-polyglot
 Plug 'tomasr/molokai'
+Plug 'Konfekt/vim-alias'
 call plug#end()
 
 syntax on
@@ -55,3 +56,7 @@ nm <leader>s :%s/\s\+$//g<cr>
 nm <leader><leader> :FZF<cr>
 no! <c-a> <HOME>
 no! <c-e> <END>
+
+
+" Define user alias
+cnoreabbrev W!! write !sudo tee > /dev/null %<CR>
