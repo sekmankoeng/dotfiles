@@ -1,0 +1,353 @@
+@import "color.css";
+
+/**
+ * Global Base
+ * ✅ 仅放全局字体、min‑height，移除全局 border‑radius / padding，避免污染所有子组件
+ */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 16px;
+  min-height: 0;
+}
+
+/**
+ * Waybar window instances
+ * dock / topbar 两个实例，保留原有背景、颜色参数不变
+ */
+window#waybar.dock {
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
+  border-radius: 12px;
+}
+
+window#waybar.topbar {
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
+}
+
+window#waybar {
+  background: rgba(255, 255, 255, 0.5);
+  color: rgb(0, 0, 0);
+}
+
+/**
+ * Tooltip
+ */
+tooltip {
+  background: rgba(0, 0, 0, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+/**
+ * Workspaces
+ */
+#workspaces button {
+  background: transparent;
+  color: black;
+  padding: 0 5px;
+  margin: 0 2px; /* 按钮之间的间距，不要和外层margin混淆 */
+  border-bottom: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+#workspaces button:focuse {
+  background: transparent;
+  border-bottom: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+/**
+ * Mode
+ */
+#mode {
+  background: #64727d;
+  border-bottom: 3px solid white;
+  padding: 0 10px;
+}
+
+/**
+ * Common system modules
+ * image / clock / battery / cpu / memory / disk / temperature / backlight / network
+ * pulseaudio / wireplumber / custom‑media / tray / idle_inhibitor / scratchpad / mpd
+ */
+
+/* -------------- Common System Modules -------------- */
+#image,
+#workspaces,
+#temperature,
+#cpu,
+#memory,
+#disk,
+#wireplumber,
+#custom-media,
+#clock,
+#tray {
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #000000;
+}
+
+/* 部分模块的图标并不居中需要调整 */
+#pulseaudio {
+  margin: 1px;
+  padding-left: 2px;
+  padding-right: 10px;
+  color: #000000;
+}
+
+#power-profiles-daemon,
+#battery {
+  margin: 1px;
+  padding-left: 3px;
+  padding-right: 10px;
+  color: #000000;
+}
+
+#idle_inhibitor,
+#network {
+  margin: 1px;
+  padding-left: 2px;
+  padding-right: 11px;
+  color: #000000;
+}
+
+#backlight {
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 10px;
+  color: #000000;
+}
+
+#custom-wlogout {
+  margin: 1px;
+  padding-left: 10px;
+  padding-right: 2px;
+  color: #000000;
+}
+
+window#waybar.topbar #custom-textFile,
+window#waybar.topbar #custom-textNote,
+window#waybar.topbar #custom-textMusic,
+window#waybar.topbar #custom-textBrowser {
+  margin: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  color:#000000
+}
+
+/* -------------- Hover -------------- */
+window#waybar.topbar #image:hover,
+window#waybar.topbar #power-profiles-daemon:hover,
+window#waybar.topbar #idle_inhibitor:hover,
+window#waybar.topbar #temperature:hover,
+window#waybar.topbar #cpu:hover,
+window#waybar.topbar #memory:hover,
+window#waybar.topbar #network:hover,
+window#waybar.topbar #pulseaudio:hover,
+window#waybar.topbar #backlight:hover,
+window#waybar.topbar #battery:hover,
+window#waybar.topbar #clock:hover,
+window#waybar.topbar #custom-wlogout:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0, 0, 0, 0.5);
+}
+
+window#waybar.topbar #custom-textFile:hover,
+window#waybar.topbar #custom-textNote:hover,
+window#waybar.topbar #custom-textMusic:hover,
+window#waybar.topbar #custom-textBrowser:hover {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1px;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0, 0, 0, 0.5);
+}
+
+/**
+ * Cava visualizer
+ */
+#cava {
+  color:#64727d;
+}
+#cava.updated {
+  background: transparent;
+  border-radius: 12px;
+  margin: 0 2px;
+  padding: 0px 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#clock {
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+/**
+ * Layout helper rules
+ */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/**
+ * Battery states & blink animation
+ * 完整保留你原有的闪烁动画逻辑
+ */
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+#battery icon {
+  color: red;
+}
+
+#battery.plugged,
+#battery.warning:not(.charging),
+#battery.critical:not(.charging)
+ {
+  margin: 1px;
+  padding-left: 6px;
+  padding-right: 8px;
+  border-radius: 4px;
+}
+
+#battery.charging,
+#battery.plugged {
+  background-color: #26a65b;
+  color: #ffffff;
+}
+#battery.warning:not(.charging) {
+  background-color: gold;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/**
+ * Other module states
+ */
+label:focus {
+  background-color: #000000;
+}
+#network.disconnected {
+  color: #f53c3c;
+}
+#temperature.critical {
+  background-color: #f53c3c;
+}
+#idle_inhibitor.activated {
+  background-color: #ecf0f1;
+  color: #2d3436;
+}
+
+/**
+ * Tray
+ */
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #f53c3c;
+}
+
+/**
+ * custom‑os_button
+ * ✅ 修复：直接定位内部 label，GTK 字号继承问题；隔离 dock / topbar 实例
+ * 原字号32px保留；如需dock用不同大小，修改 .dock 下的 font‑size
+ */
+window#waybar #custom-os_button {
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+window#waybar #custom-os_button:hover {
+  background: white;
+  color: black;
+}
+
+/* topbar 实例字号 */
+window#waybar.topbar #custom-os_button label {
+  font-size: 32px;
+}
+
+/* ---------------- dock：wlr/taskbar 按钮样式 ---------------- */
+window#waybar.dock #taskbar button {
+  background: transparent;
+  border-radius: 12px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 8px;
+  margin: 0 2px;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+window#waybar.dock #taskbar button:hover {
+  background: rgba(0,0,0,0.12);
+  border-radius: 12px; /* hover下必须重写圆角 */
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+/* ---------------- dock：custom‑os_button 修复 ---------------- */
+window#waybar.dock #custom-os_button {
+  /* 强制最小尺寸，和taskbar按钮盒子对齐，解决悬浮变窄 */
+  background: transparent;
+  border-radius: 12px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0 6px;
+  margin: 0 2px;
+}
+
+/* hover 高亮，重写border‑radius，消除直角 */
+window#waybar.dock #custom-os_button:hover {
+  background: rgba(0,0,0,0.12);
+  border-radius: 12px;
+  border: 1px rgba(255,255,255,1);
+}
+
+window#waybar.dock #custom-os_button label {
+  font-size: 32px;
+}
+

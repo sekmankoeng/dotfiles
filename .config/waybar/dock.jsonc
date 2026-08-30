@@ -1,0 +1,41 @@
+[
+  {
+    "name": "dock",
+    "layer": "top",
+    "position": "bottom",
+    "height": 50,
+    "width": 3,
+    "margin": "4px",
+    "spacing": "5",
+    
+    "modules-left": [
+      "custom/os_button"
+    ],
+    
+    "modules-center": [
+      "wlr/taskbar"
+    ],
+
+    "niri/window": {
+      "max-length": 50
+    },
+    
+    "custom/os_button": {
+      "format": "🔍",
+      "icon-size": 32,
+      "spacing": 3,
+      "on-click": "niri msg action spawn -- wofi --show drun",
+      "tooltip": false
+    },
+    
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 36,
+      "spacing": 3,
+      "on-click-middle": "close",
+      "tooltip-format": "{title}",
+      "ignore-list": ["wofi"],
+      "on-click": "activate"
+    }
+  }
+]

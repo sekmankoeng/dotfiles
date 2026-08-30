@@ -1,0 +1,12 @@
+# 主壁纸路径
+wallpaper_path = "/home/swq/.config/awww/wallpapers/wallpaper-light.png"
+# 概览壁纸，和主壁纸用同一张图，视觉无缝
+overview_wallpaper_path = "/home/swq/.config/awww/wallpapers/wallpaper-dark.png"
+
+# 图片缩放模式: fill / fit / stretch / center
+resize_mode = "fill"
+overview_resize_mode = "fill"
+
+# 动画过渡时长
+transition_duration = 0.6
+

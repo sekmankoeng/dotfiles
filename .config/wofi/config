@@ -1,0 +1,15 @@
+show=drun
+width=550
+height=450
+location=center
+always_parse_args=true
+hide-scrollbar=false
+show_all=false
+insensitive=true
+allow_images=true
+image-size=32
+normal_window=true
+allow_markup=true
+term=kitty
+font="JetBrains Mono 11"
+prompt= 👍主子☕想翻谁的牌子?🤔

@@ -1,0 +1,293 @@
+[
+  {
+    "name": "topbar",
+    "layer": "top",
+    "position": "top",
+    "height": 33,
+    "spacing": 5,
+    "modules-left": [
+      "image#launcher",
+      "custom/textFile",
+      "custom/textNote",
+      "custom/textMusic",
+      "custom/textBrowser"
+    ],
+    "modules-center": [
+      "niri/workspaces"
+      // "cava"
+    ],
+    "modules-right": [
+      "idle_inhibitor",
+      "power-profiles-daemon",
+      "temperature",
+      "cpu",
+      "memory",
+      "network",
+      "pulseaudio",
+      "backlight",
+      // "keyboard-state",
+      "battery",
+      "tray",
+      "clock",
+      "custom/wlogout"
+    ],
+    "niri/window": {
+      "format": " {title}",
+      //"format": "{icon} {title}",
+      "format-icons": {
+        "floating": "",
+        "maximized": "",
+        "fullscreen": ""
+      },
+      "tooltip-format": "{title}\n{class}\n{instance}\n{workspace}"
+    },
+
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "",
+        "default": ""
+      },
+      "sort-by-id": true
+    },
+
+    "cava": {
+      "framerate": 30,
+      "autosens": 1,
+      "bars": 14,
+      "lower_cutoff_freq": 50,
+      "higher_cutoff_freq": 10000,
+      "hide_on_silence": false,
+      "method": "pipewire",
+      "source": "auto",
+      "stereo": false,
+      "bar_delimiter": 0,
+      "monstercat": false,
+      "waves": false,
+      "noise_reduction": 0.6,
+      "input_delay": 4,
+      "sleep_timer": 1,
+      "format-icons": [ "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+      "actions": {
+        "on-click-right": "mode"
+      }
+    },
+
+    "image#launcher": {
+      "path": "/home/swq/.config/waybar/icons/peach-round-dark.svg",
+      "size": 20,
+      "on-click": "niri msg action spawn -- wofi --show drun",
+      "tooltips": false
+    },
+ 
+    "custom/textFile": {
+      "exec": "echo 'File'",
+      "interval": 60,
+      "return-type": "plain",
+      "on-click": "niri msg action spawn -- nautilus",
+      "tooltip-format": "Nautilus"
+    },
+
+    "custom/textNote": {
+      "exec": "echo 'Note'",
+      "interval": 60,
+      "return-type": "plain",
+      "on-click": "niri msg action spawn -- obsidian",
+      "tooltip-format": "Obsidian"
+    },
+
+    "custom/textMusic": {
+      "exec": "echo 'Music'",
+      "interval": 60,
+      "return-type": "plain",
+      "on-click": "niri msg action spawn -- kitty --single-instance --session /home/swq/.config/kitty/sessions/music-player.session",
+      "tooltip-format": "Ncmpcpp + Cava"
+    },
+
+    "custom/textBrowser": {
+      "exec": "echo 'Browser'",
+      "interval": 60,
+      "return-type": "plain",
+      "on-click": "niri msg action spawn -- firefox",
+      "tooltip-format": "Firefox"
+    },
+
+    "keyboard-state": {
+      "numlock": true,
+      "capslock": true,
+      "format": "{name} {icon}",
+      "format-icons": {
+        "locked": "",
+        "unlocked": ""
+      }
+    },
+
+    "mpd": {
+      "format": "  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]",
+      "format-disconnected": " Disconnected",
+      "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+      "unknown-tag": "N/A",
+      "interval": 2,
+      "consume-icons": {
+        "on": " "
+      },
+      "random-icons": {
+        "on": " "
+      },
+      "repeat-icons": {
+        "on": " "
+      },
+      "single-icons": {
+        "on": "1 "
+      },
+      "state-icons": {
+        "paused": "",
+        "playing": ""
+      },
+      "tooltip-format": "MPD (connected)",
+      "tooltip-format-disconnected": "MPD (disconnected)",
+      "on-click": "niri msg action spawn -- mpc toggle",
+      "on-click-right": "niri msg action spawn -- kitty -e ncmpcpp",
+      "on-scroll-up": "niri msg action spawn -- mpc volume +2",
+      "on-scroll-down": "niri msg action spawn -- mpc volume -2"
+    },
+
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+
+    "tray": {
+      "spacing": 10
+    },
+
+    "clock": {
+      "format": "<span><b>{:%H:%M %p}</b></span>",
+      "format-alt": "<span><b>{:%a %b %d %R %p}</b></span>",
+      "tooltip-format": "<span><small>{calendar}</small></span>",
+      "calendar": {
+        "mode"          : "year",
+        "mode-mon-col"  : 3,
+        "weeks-pos"     : "right",
+        "on-scroll"     : 1,
+        "on-click-right": "mode",
+        "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        }
+      }
+    },
+
+    "cpu": {
+      "interval": 5,
+      "format": " {usage}%"
+    },
+
+    "memory": {
+      "interval": 5,
+      "format": " {percentage}%"
+    },
+
+    "temperature": {
+      "thermal-zone": 2,
+      "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+      "critical-threshold": 80,
+      "format-critical": "{icon} {temperatureC}󰔄",
+      "format": "{icon} {temperatureC}󰔄",
+      "format-icons": [ "", "", "", "" ]
+    },
+
+    "backlight": {
+      "scroll-step": 2,
+      "min-brightness": 10.0,
+      "format": "{icon}",
+      //"format-icons": [ "", "", "", "", "", "", "", "", "" ],
+      //"format-icons": [ "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨" ],
+      "format-icons": [ "󰃝", "󰃞", "󰃟", "󰃠" ],
+      "tooltip-format": "Backlight: {percent}%"
+    },
+
+    "battery": {
+      "interval": 3,
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon}",
+      "format-charging": "{icon} 󱐋",
+      "format-plugged": "",
+      "format-icons": [ "", "", "", "", "" ],
+
+      "tooltip-format": "Capacity: {capacity}%\nBattery Life: {time}",
+      "tooltip-format-charging": "Capacity: {capacity}%\nEstimated time: {time}"
+    },
+
+    "network": {
+      // 若interval设置小于 3 秒，高速轮询 nl80211 极易触发 [warning] nl80211: nl_send_sync get_station error -5/-16错误。
+      "interval": 5,
+      "format-wifi" : "",
+      "format-ethernet": "󰈀",
+      "format-disconnected": "⚠",
+      "format-linked": "󰈁",
+      
+      "tooltip-format-wifi": "  {essid} ({signalStrength}%)\n Interface: {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
+      "tooltip-format-ethernet": "󰈀 {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
+      "tooltip-format-disconnected": "⚠ Network Disconnected!",
+      "tooltip-format-linked": "󰈁 No IP Address!",
+      "on-click": "niri msg action spawn -- nmtui"
+    },
+
+    "pulseaudio": {
+      "scroll-step": 1,
+      "format": "{icon}",
+      "format-bluetooth": " {icon} {volume}% {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": "󰝟 {format_source}",
+      "format-source": " {volume}%",
+      "format-source-muted": "",
+      "format-icons": {
+        "default": [ "", "", "" ]
+      },
+      "tooltip-format": "Volume: {volume}%"
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "format-icons": {
+        //"performance": "󰓅",
+        //"performance": "",
+        //"balanced": "󰓆",
+        //"power-saver": "󰓄"
+
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      },
+      "tooltip-format": "{profile}"
+    },
+
+    "custom/wlogout": {
+      "format" : "⏻ ",
+      "tooltip": false,
+      // 使用wlogout作为弹出菜单的方式，点击power图标直接弹出wlogout界面
+      "on-click": "niri msg action spawn -- wlogout",
+      "tooltips": false
+      // 使用waybar menu及自定义xml文件作为弹出菜单的方式，点击power图标直接弹出自定义菜单
+      // "menu": "on-click",
+      // "menu-file": "/usr/share/waybar/custom_modules/power_menu.xml", // Menu file in resources folder
+      // "menu-actions": {
+      //     "shutdown": "systemctl shutdown",
+      //     "reboot": "systemctl reboot",
+      //     "suspend": "systemctl suspend",
+      //     "hibernate": "systemctl hibernate"
+      // }
+
+    }
+  }
+]

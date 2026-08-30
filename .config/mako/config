@@ -1,0 +1,34 @@
+# 弹窗锚定位置 top‑right / top‑left / bottom‑right / bottom‑left
+anchor=top-right
+
+# 距离屏幕边框偏移像素
+margin=6
+
+# 弹窗宽度,高度
+width=360
+
+# 字体，如无 JetBrains‑Mono，换成 DejaVu Sans
+font="JetBrains Mono 12"
+
+# 背景、文字、边框颜色
+background-color=#181825AA
+text-color=#CDD6F4
+border-color=#45475A80
+border-radius=12
+
+# 通知默认停留毫秒；0=永不消失
+default-timeout=4500
+
+# 最多同时显示几条通知
+max-visible=5
+
+[urgency=low]
+border-color=#CCCCCC80
+
+[urgency=normal]
+border-color=#D0877080
+
+[urgency=high]
+border-color=#BF616A80
+default-timeout=0
+
