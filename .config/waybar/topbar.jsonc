@@ -219,13 +219,21 @@
         "warning": 30,
         "critical": 15
       },
+      "events": {
+        "on-discharging-warning": "notify-send -u normal 'Battery Status' 'Low Battery'",
+        "on-discharging-critical": "notify-send -u critical 'Battery Status' 'Critical Battery'",
+        "on-charging-100": "notify-send -u normal 'Battery Status' 'Battery Full!'",
+        "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
+        "on-charging": "notify-send -u normal 'Power Switch' Charging"
+      },
+
       "format": "{icon}",
       "format-charging": "{icon} 󱐋",
       "format-plugged": "",
       "format-icons": [ "", "", "", "", "" ],
 
-      "tooltip-format": "Capacity: {capacity}%\nBattery Life: {time}",
-      "tooltip-format-charging": "Capacity: {capacity}%\nEstimated time: {time}"
+      "tooltip-format": "Health: {health}\nCapacity: {capacity}%\nTimeToEmpty: {time}",
+      "tooltip-format-charging": "Health: {health}\nCapacity: {capacity}%\nTimeToFull: {time}"
     },
 
     "network": {

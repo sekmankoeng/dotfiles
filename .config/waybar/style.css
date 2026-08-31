@@ -226,13 +226,17 @@ window#waybar.topbar #custom-textBrowser:hover {
   color: red;
 }
 
-#battery.plugged,
-#battery.warning:not(.charging),
-#battery.critical:not(.charging)
- {
+#battery.charging {
   margin: 1px;
-  padding-left: 6px;
-  padding-right: 8px;
+  padding-left: 4px;
+  padding-right: 2px;
+  border-radius: 4px;
+}
+
+#battery.plugged {
+  margin: 1px;
+  padding-left: 8px;
+  padding-right: 10px;
   border-radius: 4px;
 }
 
@@ -244,6 +248,12 @@ window#waybar.topbar #custom-textBrowser:hover {
 #battery.warning:not(.charging) {
   background-color: gold;
   color: #ffffff;
+
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 10px;
+  border-radius: 4px;
+
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -252,7 +262,13 @@ window#waybar.topbar #custom-textBrowser:hover {
 }
 #battery.critical:not(.charging) {
   background-color: #f53c3c;
-  color: #ffffff;
+  color: #ffffff;  
+  
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 10px;
+  border-radius: 4px;
+
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
