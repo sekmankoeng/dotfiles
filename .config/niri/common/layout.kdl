@@ -1,0 +1,11 @@
+layout {
+    gaps 4
+
+    border {
+        width 2
+    }
+
+    focus-ring {
+        width 4
+    }
+}

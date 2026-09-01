@@ -28,8 +28,8 @@ check_file_exists() {
     if [ ! -e "${FILE_PATH}" ]; then
         log "ERROR" "文件不存在：${FILE_PATH}"
         return 1
-    elif [ ! -f "${FILE_PATH}" ]; then
-        log "ERROR" "不是普通文件（可能是目录/设备文件）：${FILE_PATH}"
+    elif [ ! -f "${FILE_PATH}" ] && [ ! -d "${FILE_PATH}" ]; then
+        log "ERROR" "不是普通文件或目录（可能是设备文件）：${FILE_PATH}"
         return 1
     fi
     return 0
