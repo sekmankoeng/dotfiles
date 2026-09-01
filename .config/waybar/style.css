@@ -106,6 +106,7 @@ tooltip label {
 }
 
 /* 部分模块的图标并不居中需要调整 */
+#idle_inhibitor,
 #pulseaudio {
   margin: 1px;
   padding-left: 2px;
@@ -116,19 +117,12 @@ tooltip label {
 #power-profiles-daemon,
 #battery {
   margin: 1px;
-  padding-left: 3px;
+  padding-left: 4px;
   padding-right: 10px;
   color: #000000;
 }
 
-#idle_inhibitor,
-#network {
-  margin: 1px;
-  padding-left: 2px;
-  padding-right: 11px;
-  color: #000000;
-}
-
+#network,
 #backlight {
   margin: 1px;
   padding-left: 4px;

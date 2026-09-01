@@ -4,7 +4,7 @@
     "layer": "top",
     "position": "top",
     "height": 33,
-    "spacing": 5,
+    "spacing": 2,
     "modules-left": [
       "image#launcher",
       "custom/textFile",
@@ -13,8 +13,8 @@
       "custom/textBrowser"
     ],
     "modules-center": [
-      "niri/workspaces"
-      // "cava"
+      "niri/workspaces",
+      "cava"
     ],
     "modules-right": [
       "idle_inhibitor",
@@ -239,16 +239,22 @@
     "network": {
       // 若interval设置小于 3 秒，高速轮询 nl80211 极易触发 [warning] nl80211: nl_send_sync get_station error -5/-16错误。
       "interval": 5,
-      "format-wifi" : "",
-      "format-ethernet": "󰈀",
-      "format-disconnected": "⚠",
-      "format-linked": "󰈁",
+      "format-wifi" : "{icon}",
+      "format-ethernet": "{icon}",
+      "format-disconnected": "{icon}",
+      "format-linked": "{icon}",
       
-      "tooltip-format-wifi": "  {essid} ({signalStrength}%)\n Interface: {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
-      "tooltip-format-ethernet": "󰈀 {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
-      "tooltip-format-disconnected": "⚠ Network Disconnected!",
-      "tooltip-format-linked": "󰈁 No IP Address!",
-      "on-click": "niri msg action spawn -- nmtui"
+      "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)\n Interface: {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
+      "tooltip-format-ethernet": "{icon} {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
+      "tooltip-format-disconnected": "{icon} Network Disconnected!",
+      "tooltip-format-linked": "{icon} No IP Address!",
+      "on-click": "niri msg action spawn -- nmtui",
+      "format-icons": {
+        "wifi": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
+        "ethernet": [ "󰈀" ],
+        "disconnected": [ "󱄁" ],
+        "linked": [ "󰌹" ]
+      }
     },
 
     "pulseaudio": {
