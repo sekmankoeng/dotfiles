@@ -30,21 +30,14 @@ binds {
     Mod+F11 {
         spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock"
     }
-    
+    Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
+        spawn-sh "systemctl --user start awww-rotate"
+    }
     // === Application Launchers ===
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "wofi" "--show" "drun"; }
 
     Mod+V hotkey-overlay-title="Clipboard History" {
         spawn "sh" "-c" "cliphist list | wofi --dmenu 2>/dev/null | cliphist decode | wl-copy";
-    }
-    /-Mod+V hotkey-overlay-title="Clipboard Manager" {
-        spawn "dms" "ipc" "call" "clipboard" "toggle";
-    }
-    /-Mod+M hotkey-overlay-title="Music Player" {
-        spawn-sh "kitty --single-instance --session /home/swq/.config/kitty/sessions/music-player.session"
-    }
-    /-Mod+M hotkey-overlay-title="Task Manager" {
-        spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
     }
 
     Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
@@ -60,11 +53,6 @@ binds {
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
         spawn "dms" "ipc" "call" "lock" "lock";
-    }
-    Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {
-        //spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
-        spawn "wlogout"
     }
 
     // === Audio Controls ===

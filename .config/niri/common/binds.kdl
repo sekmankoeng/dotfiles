@@ -8,8 +8,13 @@ binds {
     Mod+T hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty --single-instance"; }
     Mod+A hotkey-overlay-title="Open Terminal: alacritty" { spawn "alacritty"; }
     Mod+M hotkey-overlay-title="Music Player" {
-        spawn-sh "kitty --single-instance --session /home/swq/.config/kitty/sessions/music-player.session"
+        spawn-sh "kitty --title cava --single-instance --session /home/swq/.config/kitty/sessions/music-player.session"
     }
+
+    Mod+Shift+M hotkey-overlay-title="Task Manager" {
+        spawn-sh "kitty --title btop --single-instance --execute btop";
+    }
+
     // === Security ===
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete hotkey-overlay-title="Logout" {
@@ -23,7 +28,6 @@ binds {
     Mod+Shift+T { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
-    Mod+Shift+W hotkey-overlay-title="Create window rule" { spawn "dms" "ipc" "call" "window-rules" "toggle"; }
 
     // === Focus Navigation ===
     Mod+Left  { focus-column-left; }
@@ -82,7 +86,7 @@ binds {
     Mod+Ctrl+I         { move-column-to-workspace-up; }
 
     // === Workspace Management ===
-    Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" {
+    /-Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" {
         spawn "dms" "ipc" "call" "workspace-rename" "open";
     }
 

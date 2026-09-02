@@ -1,3 +1,6 @@
 cursor {
-    xcursor-size 30 
+    xcursor-size 30
+
+    // Auto‑hide cursor after 60 seconds of inactivity
+    hide-after-inactive-ms 60000
 }
