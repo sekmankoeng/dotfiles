@@ -11,10 +11,19 @@ width=360
 font="JetBrains Mono 12"
 
 # 背景、文字、边框颜色
-background-color=#181825AA
+background-color=#2e3440EE
 text-color=#CDD6F4
-border-color=#45475A80
+border-color=#88c0d0
 border-radius=12
+
+# 显示图标
+icons=true
+max-icon-size=48
+icon-location=left
+icon-border-radius=12
+
+# 显示格式
+format=<b>%s</b> from %a\n%b
 
 # 通知默认停留毫秒；0=永不消失
 default-timeout=4500
@@ -23,12 +32,12 @@ default-timeout=4500
 max-visible=5
 
 [urgency=low]
-border-color=#CCCCCC80
+#border-color=#CCCCCC80
 
 [urgency=normal]
-border-color=#D0877080
+#border-color=#D0877080
 
 [urgency=high]
-border-color=#BF616A80
+#border-color=#BF616A80
 default-timeout=0
 
