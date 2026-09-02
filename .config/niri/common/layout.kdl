@@ -6,6 +6,6 @@ layout {
     }
 
     focus-ring {
-        width 4
+        width 2
     }
 }
