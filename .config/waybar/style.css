@@ -89,7 +89,13 @@ tooltip label {
  */
 
 /* -------------- Common System Modules -------------- */
-#image,
+#image {
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 5px;
+  color: #000000;
+}
+
 #workspaces,
 #temperature,
 #cpu,
@@ -138,7 +144,7 @@ tooltip label {
 }
 
 window#waybar.topbar #custom-textFile,
-window#waybar.topbar #custom-textNote,
+window#waybar.topbar #custom-textEdit,
 window#waybar.topbar #custom-textMusic,
 window#waybar.topbar #custom-textBrowser {
   margin: 1px;
@@ -166,7 +172,7 @@ window#waybar.topbar #custom-wlogout:hover {
 }
 
 window#waybar.topbar #custom-textFile:hover,
-window#waybar.topbar #custom-textNote:hover,
+window#waybar.topbar #custom-textEdit:hover,
 window#waybar.topbar #custom-textMusic:hover,
 window#waybar.topbar #custom-textBrowser:hover {
   background: rgba(0, 0, 0, 0.5);
@@ -277,14 +283,13 @@ label:focus {
   background-color: #000000;
 }
 #network.disconnected {
-  color: #f53c3c;
+  color: #000000;
 }
 #temperature.critical {
-  background-color: #f53c3c;
+  color: #f53c3c;
 }
 #idle_inhibitor.activated {
-  background-color: #ecf0f1;
-  color: #2d3436;
+  color: #000000;
 }
 
 /**

@@ -1,0 +1,8 @@
+layout splits
+
+# top window
+launch cava
+
+# bottom window
+launch --location=hsplit ncmpcpp
+

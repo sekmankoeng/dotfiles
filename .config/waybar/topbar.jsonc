@@ -8,7 +8,7 @@
     "modules-left": [
       "image#launcher",
       "custom/textFile",
-      "custom/textNote",
+      "custom/textEdit",
       "custom/textMusic",
       "custom/textBrowser"
     ],
@@ -88,12 +88,12 @@
       "tooltip-format": "Nautilus"
     },
 
-    "custom/textNote": {
-      "exec": "echo 'Note'",
+    "custom/textEdit": {
+      "exec": "echo 'Edit'",
       "interval": 60,
       "return-type": "plain",
-      "on-click": "niri msg action spawn -- obsidian",
-      "tooltip-format": "Obsidian"
+      "on-click": "niri msg action spawn -- kitty --single-instance --execute vim",
+      "tooltip-format": "Vim"
     },
 
     "custom/textMusic": {
