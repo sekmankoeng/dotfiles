@@ -1,0 +1,10 @@
+image=/home/swq/Pictures/Images/desktop-base/login-background.svg
+scaling=fill
+indicator-idle-visible
+indicator-radius=90
+indicator-thickness=16
+ring-color=#bd93f9
+key-hl-color=#50fa7b
+line-color=#44475a
+inside-wrong-color=#ff5555
+inside-color=#21222c
