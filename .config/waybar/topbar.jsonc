@@ -275,12 +275,9 @@
       "format": "{icon}",
       "format-icons": {
         //"performance": "󰓅",
-        //"performance": "",
-        //"balanced": "󰓆",
-        //"power-saver": "󰓄"
-
+        //"balanced": "",
         "performance": "",
-        "balanced": "",
+        "balanced": "",
         "power-saver": ""
       },
       "tooltip-format": "{profile}"

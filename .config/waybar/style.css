@@ -120,11 +120,17 @@ tooltip label {
   color: #000000;
 }
 
-#power-profiles-daemon,
+#power-profiles-daemon {
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 9px;
+  color: #000000;
+}
+
 #battery {
   margin: 1px;
   padding-left: 4px;
-  padding-right: 10px;
+  padding-right: 12px;
   color: #000000;
 }
 
