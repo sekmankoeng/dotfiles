@@ -272,6 +272,7 @@ window-rule {
     match app-id="kitty" title="cava"
     match app-id="kitty" title="btop"
     match app-id="kitty" title="vim"
+    match app-id="code"
     open-maximized true
 }
 debug {

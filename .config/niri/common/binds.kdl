@@ -11,7 +11,7 @@ binds {
     Mod+E hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
 
     Mod+T hotkey-overlay-title="Open Terminal: Kitty" {
-        spawn "kitty" "--single-instance";
+        spawn-sh "kitty --title terminal --single-instance";
     }
     Mod+A hotkey-overlay-title="Open Terminal: Alacritty" { spawn "alacritty"; }
     Mod+M hotkey-overlay-title="Music Player" {
