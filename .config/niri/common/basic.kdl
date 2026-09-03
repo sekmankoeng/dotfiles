@@ -269,6 +269,7 @@ window-rule {
 }
 
 window-rule {
+    match app-id="md.obsidian.Obsidian"
     match app-id="kitty" title="cava"
     match app-id="kitty" title="btop"
     match app-id="kitty" title="vim"
