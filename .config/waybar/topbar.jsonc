@@ -92,7 +92,7 @@
       "exec": "echo 'Edit'",
       "interval": 60,
       "return-type": "plain",
-      "on-click": "niri msg action spawn -- kitty --single-instance --execute vim",
+      "on-click": "niri msg action spawn -- kitty --title vim --single-instance --execute vim",
       "tooltip-format": "Vim"
     },
 
@@ -100,7 +100,7 @@
       "exec": "echo 'Music'",
       "interval": 60,
       "return-type": "plain",
-      "on-click": "niri msg action spawn -- kitty --single-instance --session /home/swq/.config/kitty/sessions/music-player.session",
+      "on-click": "niri msg action spawn -- kitty --title cava --single-instance --session /home/swq/.config/kitty/sessions/music-player.session",
       "tooltip-format": "Ncmpcpp + Cava"
     },
 

@@ -4,22 +4,29 @@ binds {
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     
-    // === Application Launchers ===
-    Mod+T hotkey-overlay-title="Open Terminal: kitty" { spawn-sh "kitty --single-instance"; }
-    Mod+A hotkey-overlay-title="Open Terminal: alacritty" { spawn "alacritty"; }
+    // === Application Launchers === 
+    Mod+F1 hotkey-overlay-title="Toggle Input Method" {
+        spawn-sh "fcitx5 -rd";
+    }
+    Mod+E hotkey-overlay-title="Open File Manager" { spawn "nautilus"; }
+
+    Mod+T hotkey-overlay-title="Open Terminal: Kitty" {
+        spawn "kitty" "--single-instance";
+    }
+    Mod+A hotkey-overlay-title="Open Terminal: Alacritty" { spawn "alacritty"; }
     Mod+M hotkey-overlay-title="Music Player" {
         spawn-sh "kitty --title cava --single-instance --session /home/swq/.config/kitty/sessions/music-player.session"
     }
-
+    Mod+N hotkey-overlay-title="Vim" {
+        spawn-sh "kitty --title vim --single-instance --execute vim";
+    }
     Mod+Shift+M hotkey-overlay-title="Task Manager" {
         spawn-sh "kitty --title btop --single-instance --execute btop";
     }
 
     // === Security ===
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete hotkey-overlay-title="Logout" {
-        spawn "wlogout"
-    }
+    Ctrl+Alt+Delete hotkey-overlay-title="Logout" { spawn "wlogout"; }
 
     // === Window Management ===
     Mod+Q repeat=false { close-window; }
@@ -163,8 +170,4 @@ binds {
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
-
-    // === SWQ: fix gtk popup-window === 
-    Mod+F1 { spawn-sh "fcitx5 -rd"; }
-    Mod+E { spawn "nautilus"; }
 }

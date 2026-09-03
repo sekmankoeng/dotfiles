@@ -12,6 +12,7 @@ include "common/binds.kdl"
 include "common/outputs.kdl"
 include "common/cursor.kdl"
 include "common/windowrules.kdl"
+include "common/animations.kdl"
 
 // === Rules Section ===
 layer-rule {
@@ -24,31 +25,28 @@ layer-rule {
 binds {
     // === System & Overview ===
     Mod+F12 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar"
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar";
     }
 
     Mod+F11 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock"
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock";
     }
+
     Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
-        spawn-sh "systemctl --user start awww-rotate"
+        spawn-sh "systemctl --user start awww-rotate";
     }
-    // === Application Launchers ===
+
+    Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "wlogout"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "wofi" "--show" "drun"; }
 
+    // === Application Launchers ===
     Mod+V hotkey-overlay-title="Clipboard History" {
-        spawn "sh" "-c" "cliphist list | wofi --dmenu 2>/dev/null | cliphist decode | wl-copy";
+        spawn-sh "cliphist list | wofi --dmenu 2>/dev/null | cliphist decode | wl-copy";
     }
 
-    Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
-    Mod+Comma hotkey-overlay-title="Settings" {
-        spawn "dms" "ipc" "call" "settings" "focusOrToggle";
-    }
     Mod+Y hotkey-overlay-title="Browse Wallpapers" {
-        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+        spawn "nautilus" "/home/swq/Pictures/Wallpapers";
     }
-    Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-    Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
 
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
@@ -57,42 +55,42 @@ binds {
 
     // === Audio Controls ===
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "increment" "3";
+        spawn "wpctl" "set-volume" "--limit" "1.2" "@DEFAULT_AUDIO_SINK@" "5%+";
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "decrement" "3";
+        spawn "wpctl" "set-volume" "--limit" "1.2" "@DEFAULT_AUDIO_SINK@" "5%-";
     }
     XF86AudioMute allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "mute";
+        spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
     }
     XF86AudioMicMute allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "micmute";
+        spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
     }
-    XF86AudioPause allow-when-locked=true {
-        spawn "dms" "ipc" "call" "mpris" "playPause";
-    }
-    XF86AudioPlay allow-when-locked=true {
-        spawn "dms" "ipc" "call" "mpris" "playPause";
-    }
-    XF86AudioPrev allow-when-locked=true {
-        spawn "dms" "ipc" "call" "mpris" "previous";
-    }
-    XF86AudioNext allow-when-locked=true {
-        spawn "dms" "ipc" "call" "mpris" "next";
-    }
-    Ctrl+XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "mpris" "increment" "3";
-    }
-    Ctrl+XF86AudioLowerVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "mpris" "decrement" "3";
-    }
+    // XF86AudioPause allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "playPause";
+    // }
+    // XF86AudioPlay allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "playPause";
+    // }
+    // XF86AudioPrev allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "previous";
+    // }
+    // XF86AudioNext allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "next";
+    // }
+    // Ctrl+XF86AudioRaiseVolume allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "increment" "3";
+    // }
+    // Ctrl+XF86AudioLowerVolume allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "decrement" "3";
+    // }
 
     // === Brightness Controls ===
     XF86MonBrightnessUp allow-when-locked=true {
-       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+       spawn "brightnessctl" "set" "+5%";
     }
     XF86MonBrightnessDown allow-when-locked=true {
-       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+       spawn "brightnessctl" "set" "5%-";
     }
 }
 

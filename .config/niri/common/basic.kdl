@@ -269,8 +269,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id="kitty" title=r#"cava"#
-    match app-id="kitty" title=r#"btop"#
+    match app-id="kitty" title="cava"
+    match app-id="kitty" title="btop"
+    match app-id="kitty" title="vim"
     open-maximized true
 }
 debug {
