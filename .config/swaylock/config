@@ -1,10 +1,63 @@
 image=/home/swq/Pictures/Images/desktop-base/login-background.svg
-scaling=fill
-indicator-idle-visible
-indicator-radius=90
-indicator-thickness=16
-ring-color=#bd93f9
-key-hl-color=#50fa7b
-line-color=#44475a
-inside-wrong-color=#ff5555
-inside-color=#21222c
+# ignore-empty-password
+
+## 🕒 时间和日期格式
+clock
+timestr=%R
+datestr=%Y-%m-%d %A
+
+## 🖼️ 图像效果
+effect-blur=6x3
+effect-scale=2
+
+## ⭕ 指示器核心设置
+indicator
+indicator-radius=160
+indicator-thickness=10
+indicator-caps-lock
+
+## 📏 分隔符 (隐藏)
+separator-color=00000000
+
+# --- 内部填充颜色 (Inside) ---
+# 内部颜色保持极度透明，只在密码错误时显示红色
+inside-color=00000033
+inside-clear-color=00000033
+inside-caps-lock-color=00000033
+inside-ver-color=00000033
+inside-wrong-color=B04F4FFF
+
+# --- 外部圆环颜色 (Ring) ---
+# 基础状态：深灰色 (低调)
+ring-color=333333D9
+# 核心修改：清除输入时的圆环使用强调色 (琥珀色)
+ring-clear-color=3BAE58D9
+# Caps Lock 开启时的圆环颜色：柔和蓝色
+ring-caps-lock-color=4F7FB0D9
+# 验证成功时的颜色：柔和绿色 (状态 OK)
+ring-ver-color=3BAE58D9
+# 密码错误时的颜色：柔和红色 (状态 Error)
+ring-wrong-color=B04F4FD9
+
+# --- 线条颜色 (Line) ---
+line-color=00000000
+# 核心修改：线条颜色使用强调色 (琥珀色)
+line-clear-color=D49944FF
+line-caps-lock-color=4F7FB0FF
+line-ver-color=3BAE58FF
+line-wrong-color=B04F4FFF
+
+# --- 文本颜色 (Text) ---
+# 核心修改：文本颜色使用浅灰色 (Waybar 文本色)
+text-clear-color=CCCCCCFF
+text-caps-lock-color=CCCCCCFF
+text-ver-color=3BAE58FF
+text-wrong-color=B04F4FFF
+
+# --- 按键高亮颜色 (Key Highlight) ---
+# 核心修改：普通按键高亮使用 Waybar 强调色
+key-hl-color=A37800FF
+# 核心修改：Backspace 高亮使用 Waybar 错误色
+bs-hl-color=B04F4FFF
+caps-lock-key-hl-color=4F7FB0FF
+caps-lock-bs-hl-color=B04F4FFF
