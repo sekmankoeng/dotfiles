@@ -13,8 +13,9 @@
       "custom/textBrowser"
     ],
     "modules-center": [
-      "niri/workspaces",
-      "cava"
+      "niri/workspaces"
+      // Debian 官方apt仓库中编译出来的waybar,编译时没有开启cava模块支持。
+      //"cava"
     ],
     "modules-right": [
       "idle_inhibitor",
@@ -24,6 +25,8 @@
       "memory",
       "network",
       "pulseaudio",
+      // Debian 官方apt仓库中编译出来的waybar,编译时没有开启wireplumber模块支持,只提供了老的pulseaudio音频模块。
+      //"wireplumber",
       "backlight",
       // "keyboard-state",
       "battery",
@@ -258,17 +261,36 @@
     },
 
     "pulseaudio": {
-      "scroll-step": 1,
-      "format": "{icon}",
-      "format-bluetooth": " {icon} {volume}% {format_source}",
-      "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": "󰝟 {format_source}",
-      "format-source": " {volume}%",
-      "format-source-muted": "",
+      "format": "{format_source} {icon}",
+      "format-source": "󰍬",
+      "format-source-muted": "󰍭",
+      "format-muted": "{format_source} 󰖁",
       "format-icons": {
-        "default": [ "", "", "" ]
+        "headphone": "",
+        "default": [ "󰕿", "󰖀", "󰕾" ]
+        //"default": [ "", "", "" ]
       },
-      "tooltip-format": "Volume: {volume}%"
+      "scroll-step": 1,
+      "tooltip-format": "󰍬 Input Volume: {source_volume}\n󰕾 Output Volume: {volume}%"
+    },
+
+    "wireplumber#sink": {
+      "format": "{icon}",
+      "format-muted": "󰖁",
+      "format-icons": [ "󰕿", "󰖀", "󰕾" ],
+      //"format-icons": [ "", "", "" ]
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+      "scroll-step": 5,
+      "tooltip-format": "󰕾 Output Volume: {volume}%"
+    },
+    "wireplumber#source": {
+      "node-type": "Audio/Source",
+      "format": "{icon}",
+      "format-muted": "󰍭",
+      "format-icons":[ "󰍬" ],
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+      "scroll-step": 5,
+      "tooltip-format": "󰕾 Output Volume: {volume}%"
     },
 
     "power-profiles-daemon": {
