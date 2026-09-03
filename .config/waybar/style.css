@@ -288,6 +288,24 @@ window#waybar.topbar #custom-textBrowser:hover {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+#battery.warning.plugged {
+  background-color: gold;
+  color: #ffffff;
+
+  margin: 1px;
+  padding-left: 8px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+#battery.critical.plugged {
+  background-color: #f53c3c;
+  color: #ffffff;
+
+  margin: 1px;
+  padding-left: 8px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
 
 /**
  * Other module states
