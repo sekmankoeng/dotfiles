@@ -23,6 +23,7 @@
       "temperature",
       "cpu",
       "memory",
+      "disk",
       "network",
       "pulseaudio",
       // Debian 官方apt仓库中编译出来的waybar,编译时没有开启wireplumber模块支持,只提供了老的pulseaudio音频模块。
@@ -194,7 +195,15 @@
 
     "memory": {
       "interval": 5,
-      "format": " {percentage}%"
+      "format": " {percentage}%",
+      "tooltip-format": "Memory Usage: {percentage}%\nUsed: {used:0.1f}G\nFree: {avail:0.1f}G\nTotal: {total:0.1f}G\n --- Swap {swapState} --- \nSwap Usage: {swapPercentage}%\nUsed: {swapUsed:0.1f}G\nFree: {swapAvail:0.1f}G\nTotal: {swapTotal:0.1f}G"
+    },
+
+    "disk": {
+      "interval": 30,
+      //"format": " {percentage_used}%",
+      "format": "󰋊 {percentage_used}%",
+      "tooltip-format": "Disk Usage: {percentage_used}%\nUsed: {used}\nFree: {free}\nTotal: {total}"
     },
 
     "temperature": {
@@ -266,7 +275,7 @@
       "format-source-muted": "󰍭",
       "format-muted": "{format_source} 󰖁",
       "format-icons": {
-        "headphone": "",
+        "headphone": "󰋋",
         "default": [ "󰕿", "󰖀", "󰕾" ]
         //"default": [ "", "", "" ]
       },
