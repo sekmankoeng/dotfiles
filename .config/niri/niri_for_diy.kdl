@@ -36,9 +36,8 @@ binds {
         spawn-sh "systemctl --user start awww-rotate";
     }
 
-    Super+X hotkey-overlay-title="Power Menu: Toggle" { spawn "wlogout"; }
+    Super+X hotkey-overlay-title="Power Menu" { spawn "wlogout"; }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "wofi" "--show" "drun"; }
-
     // === Application Launchers ===
     Mod+V hotkey-overlay-title="Clipboard History" {
         spawn-sh "cliphist list | wofi --dmenu 2>/dev/null | cliphist decode | wl-copy";
@@ -50,7 +49,7 @@ binds {
 
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
-        spawn "dms" "ipc" "call" "lock" "lock";
+        spawn "swaylock";
     }
 
     // === Audio Controls ===

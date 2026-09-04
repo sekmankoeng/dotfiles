@@ -2,10 +2,10 @@
 image=/home/swq/Pictures/Images/desktop-base/login-background.svg
 
 # --- 指示器外观设置 ---
-indicator-idle-visible
+# indicator-idle-visible
 indicator-caps-lock
 indicator-radius=160
-indicator-thickness=20
+indicator-thickness=40
 
 # --- 按键高亮颜色(Key Highlight) ---
 # 核心修改：Backspce 高亮使用
@@ -34,3 +34,6 @@ ring-wrong-color=#7d3300
 
 # --- 按键响应与圆环之间的分割色(Separator) ---
 separator-color=#000000
+
+# line-uses-inside
+# line-uses-ring
