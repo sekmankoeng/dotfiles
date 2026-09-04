@@ -49,3 +49,18 @@ window {
 #img {
     padding: 4px;
 }
+
+/* 解决子菜单箭头不显示问题 */
+expander {
+    /* 手动恢复子菜单箭头 */
+    color:#c6d0f5;
+}
+expander arrow {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    -gtk-icon-transform: scale(1.6);
+}
+/* 未生效：点击箭头后子选项展开，但箭头依然原样，没有转头向下 */
+/* expander:checked arrow {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+    -gtk-icon-transform: scale(1.6);
+} */
