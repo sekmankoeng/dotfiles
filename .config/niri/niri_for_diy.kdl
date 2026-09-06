@@ -37,7 +37,7 @@ binds {
     }
 
     Super+X hotkey-overlay-title="Power Menu" { spawn "wlogout"; }
-    Mod+Space hotkey-overlay-title="Application Launcher" { spawn "wofi" "--show" "drun"; }
+    Mod+Space hotkey-overlay-title="Application Launcher" { spawn "wofi"; }
     // === Application Launchers ===
     Mod+V hotkey-overlay-title="Clipboard History" {
         spawn-sh "cliphist list | wofi --dmenu 2>/dev/null | cliphist decode | wl-copy";

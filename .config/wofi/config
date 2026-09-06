@@ -10,6 +10,8 @@ allow_images=true
 image-size=32
 normal_window=true
 allow_markup=true
+no_actions=true
 term=kitty
 font="JetBrains Mono 11"
+
 prompt=

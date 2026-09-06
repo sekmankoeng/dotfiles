@@ -260,7 +260,8 @@
       "tooltip-format-ethernet": "{icon} {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
       "tooltip-format-disconnected": "{icon} Network Disconnected!",
       "tooltip-format-linked": "{icon} No IP Address!",
-      "on-click": "niri msg action spawn -- nmtui",
+      "on-click": "/home/swq/.config/waybar/scripts/down_wifi.sh",
+      "on-click-right": "/home/swq/.config/waybar/scripts/select_wifi.sh",
       "format-icons": {
         "wifi": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ],
         "ethernet": [ "󰈀" ],
