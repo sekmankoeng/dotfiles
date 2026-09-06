@@ -15,8 +15,21 @@ config-notification {
 
 
 gestures {
+    // 左右平铺视图滚动，增加触发区域和最大速度。
+    dnd-edge-view-scroll {
+        trigger-width 100
+        max-speed 3000
+    }
+    // 上下工作区滚动，增加触发区域和最大速度。
+    dnd-edge-workspace-switch {
+        trigger-height 100
+        max-speed 3000
+    }
+
     hot-corners {
         //on
+        top-left
+        top-right
     }
 }
 
