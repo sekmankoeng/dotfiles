@@ -1,0 +1,74 @@
+* {
+    all: unset;
+    font-family: "JetBrains Mono";
+    font-size: 14px;
+}
+
+#window {
+    margin: 0px;
+    border: 2px solid #3b4261;
+    border-radius: 12px;
+    background-color: rgba(24, 27, 42, 0.92);
+    color: #c6d0f5;
+    /* animation: slideIn 5.5s ease-in-out both; */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#outer-box {
+    margin: 2px;
+    padding: 4px;
+}
+
+#inner-box {
+    margin: 12px;
+    /* animation: fadeIn 0.2s ease-in-out both; */
+}
+
+#input {
+    margin: 12px;
+    margin-top: 40px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #414868;
+    background-color: #24273a;
+    color: #cad3f5;
+    animation: fadeIn 0.3s ease-in-out both;
+}
+
+#scroll {
+    margin: 0px;
+    border: none
+}
+
+#text {
+    /* padding: 6px 8px; */
+    font-size: 14px;
+}
+
+#img {
+    padding: 4px;
+
+}
+
+#entry {
+    border-radius: 6px;
+    padding: 2px;
+    animation: fadeIn 0.3s ease-in-out both;
+}
+
+#entry:selected {
+    background-color: transparent;
+}
+
+/* config 已经设置no_actions=true，不会再显示二级目录及提示箭头按钮 */
+#expander-box {
+    background-color: #5b6078;
+}
