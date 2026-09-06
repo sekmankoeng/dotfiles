@@ -13,7 +13,7 @@ wifi_list=$(nmcli -t -f SECURITY,SIGNAL,SSID device wifi list \
   | awk -F':' '
       {
           sec=$1; sig=$2+0; ssid=$3;
-          sec_icon = (sec=="") ? "✅" : "🔒";
+          sec_icon = (sec=="") ? "🔓" : "🔒";
           if (sig >= 80)      strength_icon="󰤨";
           else if (sig >= 60) strength_icon="󰤥";
           else if (sig >= 40) strength_icon="󰤢";
@@ -28,12 +28,12 @@ if [[ -z "$wifi_list" ]]; then
   exit 1
 fi
 
-# 3. wofi选择wifi
-CHOSEN=$(echo "$wifi_list" | wofi --dmenu --prompt="💡提示：隐藏SSID直接输入即可尝试连接")
+# 3. 选择wifi
+CHOSEN=$(echo "$wifi_list" | fuzzel --dmenu)
 [[ -z "$CHOSEN" ]] && exit 0
 
-# 4. 判断wofi是新填写的隐藏SSID还是选择的已扫描到的SSID
-RE='^(🔒|✅)[[:space:]]+\|[[:space:]]+([^|]+)[[:space:]]([0-9]{1,3})%[[:space:]]+\|[[:space:]]+(.*)$'
+# 4. 判断是新填写的隐藏SSID还是选择的已扫描到的SSID
+RE='^(🔒|🔓)[[:space:]]+\|[[:space:]]+([^|]+)[[:space:]]([0-9]{1,3})%[[:space:]]+\|[[:space:]]+(.*)$'
 if [[ "$CHOSEN" =~ $RE ]]; then
   ICON="${BASH_REMATCH[1]}"
   SSID="${BASH_REMATCH[4]}"
@@ -52,7 +52,7 @@ if nmcli connection show "$SSID" >/dev/null 2>&1; then
 fi
 
 # 5. 分支：连接无密码的开放WiFi
-if [[ "$ICON" == "✅" ]]; then
+if [[ "$ICON" == "🔓" ]]; then
     if nmcli device wifi connect "$SSID"; then
         notify-send -a "waybar" -u normal "WiFi" "连接成功：$SSID"
     else
@@ -71,7 +71,8 @@ SSID_HINT="<span color='#82aaff'>💡即将连接：${SSID}</span>"
 HIDE_HINT="<span color='#82aaff'>⚠️隐藏SSID无法自动连接</span>"
 
 HINT_LIST=$( printf "%s\n%s" "$SSID_HINT" "$HIDE_HINT" )
-PASSWORD=$(echo "${HINT_LIST}" | wofi --style=${HOME}/.config/wofi/wifi_auth.css --dmenu --height=200 --password --prompt="🔑 请输入WiFi密码")
+# PASSWORD=$(echo "${HINT_LIST}" | wofi --style=${HOME}/.config/wofi/wifi_auth.css --dmenu --height=200 --password --prompt="🔑 请输入WiFi密码")
+PASSWORD=$(fuzzel --dmenu --prompt-only="WiFi密码: " --password --placeholder="请输入WiFi密码")
 if [[ -z "$PASSWORD" ]]; then
   notify-send -a "waybar" -u normal "WiFi" "连接失败：$SSID，无效密码"
   exit 1

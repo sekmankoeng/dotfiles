@@ -80,7 +80,7 @@
     "image#launcher": {
       "path": "/home/swq/.config/waybar/icons/peach-round-dark.svg",
       "size": 20,
-      "on-click": "niri msg action spawn -- wofi --show drun",
+      "on-click": "niri msg action spawn -- fuzzel --show drun",
       "tooltips": false
     },
  

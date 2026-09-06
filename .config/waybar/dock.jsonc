@@ -21,10 +21,11 @@
     },
     
     "custom/os_button": {
-      "format": "🔍",
+      // "format": "🔍",
+      "format": "",
       "icon-size": 32,
       "spacing": 3,
-      "on-click": "niri msg action spawn -- wofi --show drun",
+      "on-click": "niri msg action spawn -- fuzzel --show drun",
       "tooltip": false
     },
     
@@ -34,7 +35,7 @@
       "spacing": 3,
       "on-click-middle": "close",
       "tooltip-format": "{title}",
-      "ignore-list": ["wofi"],
+      "ignore-list": ["wofi", "fuzzel"],
       "on-click": "activate"
     }
   }
