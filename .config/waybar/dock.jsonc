@@ -3,10 +3,10 @@
     "name": "dock",
     "layer": "top",
     "position": "bottom",
-    "height": 50,
-    "width": 3,
-    "margin": "4px",
-    "spacing": "5",
+    "height": 46,
+    "mode": "dock",
+    "margin": "2px",
+    "spacing": 2,
     
     "modules-left": [
       "custom/os_button"
@@ -15,16 +15,12 @@
     "modules-center": [
       "wlr/taskbar"
     ],
-
-    "niri/window": {
-      "max-length": 50
-    },
     
     "custom/os_button": {
       // "format": "🔍",
       "format": "",
-      "icon-size": 32,
-      "spacing": 3,
+      "icon-size": 36,
+      "spacing": 2,
       "on-click": "niri msg action spawn -- fuzzel --show drun",
       "tooltip": false
     },
@@ -32,7 +28,7 @@
     "wlr/taskbar": {
       "format": "{icon}",
       "icon-size": 36,
-      "spacing": 3,
+      "spacing": 2,
       "on-click-middle": "close",
       "tooltip-format": "{title}",
       "ignore-list": ["wofi", "fuzzel"],

@@ -17,7 +17,7 @@
 window#waybar.dock {
   background: rgba(255, 255, 255, 0.5);
   color: rgb(0, 0, 0);
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 window#waybar.topbar {
@@ -34,7 +34,7 @@ window#waybar {
  * Tooltip
  */
 tooltip {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
 }
 tooltip label {
   color: white;
@@ -355,11 +355,11 @@ window#waybar.topbar #custom-os_button label {
 /* ---------------- dock：wlr/taskbar 按钮样式 ---------------- */
 window#waybar.dock #taskbar button {
   background: transparent;
-  border-radius: 12px;
+  border-radius: 10px;
   min-width: 32px;
   min-height: 32px;
-  padding: 0 8px;
-  margin: 0 2px;
+  padding: 0 6px;
+  margin: 0;
   text-shadow: none;
   box-shadow: none;
   border: none;
@@ -367,8 +367,8 @@ window#waybar.dock #taskbar button {
 }
 
 window#waybar.dock #taskbar button:hover {
-  background: rgba(0,0,0,0.12);
-  border-radius: 12px; /* hover下必须重写圆角 */
+  background: rgba(0,0,0,0.24);
+  border-radius: 10px; /* hover下必须重写圆角 */
   text-shadow: none;
   box-shadow: none;
   border: none;
@@ -379,18 +379,18 @@ window#waybar.dock #taskbar button:hover {
 window#waybar.dock #custom-os_button {
   /* 强制最小尺寸，和taskbar按钮盒子对齐，解决悬浮变窄 */
   background: transparent;
-  border-radius: 12px;
+  border-radius: 10px;
   min-width: 32px;
   min-height: 32px;
-  padding: 0 6px;
-  margin: 0 2px;
+  padding: 0 8px;
+  margin: 0;
 }
 
 /* hover 高亮，重写border‑radius，消除直角 */
 window#waybar.dock #custom-os_button:hover {
-  background: rgba(0,0,0,0.12);
-  border-radius: 12px;
-  border: 1px rgba(255,255,255,1);
+  background: rgba(0,0,0,0.24);
+  border-radius: 10px;
+  border: none;
 }
 
 window#waybar.dock #custom-os_button label {
