@@ -335,7 +335,7 @@ label:focus {
 }
 
 /**
- * custom‑os_button
+ * custom‑spotlight
  * ✅ 修复：直接定位内部 label，GTK 字号继承问题；隔离 dock / topbar 实例
  * 原字号32px保留；如需dock用不同大小，修改 .dock 下的 font‑size
  */
@@ -352,13 +352,21 @@ window#waybar.topbar #custom-os_button label {
   font-size: 32px;
 }
 
+/* dock 居中布局 */
+window#waybar.dock #modules-center{
+  background: transparent;
+}
+window#waybar.dock #bar > box{
+  background: transparent;
+}
+
 /* ---------------- dock：wlr/taskbar 按钮样式 ---------------- */
 window#waybar.dock #taskbar button {
   background: transparent;
   border-radius: 10px;
   min-width: 32px;
-  min-height: 32px;
-  padding: 0 6px;
+  /* min-height: 32px; */
+  padding: 0 10px;
   margin: 0;
   text-shadow: none;
   box-shadow: none;
@@ -375,25 +383,43 @@ window#waybar.dock #taskbar button:hover {
   outline: none;
 }
 
-/* ---------------- dock：custom‑os_button 修复 ---------------- */
-window#waybar.dock #custom-os_button {
+/* ---------------- dock：custom 修复 ---------------- */
+window#waybar.dock #custom-trash,
+window#waybar.dock #custom-nautilus,
+window#waybar.dock #custom-spotlight {
   /* 强制最小尺寸，和taskbar按钮盒子对齐，解决悬浮变窄 */
   background: transparent;
   border-radius: 10px;
   min-width: 32px;
-  min-height: 32px;
-  padding: 0 8px;
+  /* min-height: 32px; */
+  padding: 0 10px;
   margin: 0;
 }
 
+window#waybar.dock #custom-trash {
+  padding-left: 12px;
+  padding-right: 8px;
+}
+
 /* hover 高亮，重写border‑radius，消除直角 */
-window#waybar.dock #custom-os_button:hover {
+window#waybar.dock #custom-trash:hover,
+window#waybar.dock #custom-nautilus:hover,
+window#waybar.dock #custom-spotlight:hover {
   background: rgba(0,0,0,0.24);
   border-radius: 10px;
   border: none;
 }
 
-window#waybar.dock #custom-os_button label {
+window#waybar.dock #custom-separator label,
+window#waybar.dock #custom-spotlight label {
   font-size: 32px;
+}
+
+window#waybar.dock #custom-nautilus label {
+  font-size: 38px;
+}
+
+window#waybar.dock #custom-trash label {
+  font-size: 40px;
 }
 

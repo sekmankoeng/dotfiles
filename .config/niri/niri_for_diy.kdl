@@ -25,12 +25,21 @@ layer-rule {
 binds {
     // === System & Overview ===
     Mod+F12 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar";
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar toggle";
     }
 
     Mod+F11 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock";
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock toggle";
     }
+
+    Mod+Ctrl+F12 {
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar reload";
+    }
+
+    Mod+Ctrl+F11 {
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock reload";
+    }
+
 
     Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
         spawn-sh "systemctl --user start awww-rotate";

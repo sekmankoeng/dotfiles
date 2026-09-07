@@ -4,27 +4,54 @@
     "layer": "top",
     "position": "bottom",
     "height": 46,
-    "mode": "dock",
+    "width": 128,
     "margin": "2px",
     "spacing": 2,
-    
-    "modules-left": [
-      "custom/os_button"
-    ],
-    
+    "expand-center": false,
+    "expand-left": false,
+    "expand-right": false,
+    "fixed-center": true,
+    "modules-left": [],
     "modules-center": [
-      "wlr/taskbar"
+      "custom/spotlight",
+      "custom/nautilus",
+      "custom/separator",
+      "wlr/taskbar",
+      "custom/separator",
+      "custom/trash"
     ],
-    
-    "custom/os_button": {
-      // "format": "🔍",
-      "format": "",
+    "modules-right": [],
+
+    "custom/spotlight": {
+      "format": "",
       "icon-size": 36,
       "spacing": 2,
       "on-click": "niri msg action spawn -- fuzzel --show drun",
       "tooltip": false
     },
     
+    "custom/nautilus": {
+      "format": "󰀶",
+      "icon-size": 36,
+      "spacing": 2,
+      "on-click": "niri msg action spawn -- nautilus",
+      "tooltip": false
+    },
+
+    "custom/separator": {
+      "format": "",
+      "icon-size": 36,
+      "spacing": 2,
+      "tooltip": false
+    },
+
+    "custom/trash": {
+      "format": "󰩺",
+      "icon-size": 36,
+      "spacing": 2,
+      "on-click": "niri msg action spawn -- nautilus trash://",
+      "tooltip": false
+    },
     "wlr/taskbar": {
       "format": "{icon}",
       "icon-size": 36,
@@ -32,7 +59,9 @@
       "on-click-middle": "close",
       "tooltip-format": "{title}",
       "ignore-list": ["wofi", "fuzzel"],
-      "on-click": "activate"
+      "squash-list": ["*"],
+      "on-click": "activate",
+      "tooltip": false
     }
   }
 ]
