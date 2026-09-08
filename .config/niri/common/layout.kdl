@@ -80,6 +80,7 @@ layout {
     }
     
     insert-hint {
+        // off
         color "#74c7ec80"
     }
 }

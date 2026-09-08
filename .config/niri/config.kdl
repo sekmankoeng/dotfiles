@@ -6,7 +6,7 @@
 // === Include Common Files ===
 include "common/basic.kdl"
 include "common/layout.kdl"
-include "common/alttab.kdl"
+include "common/recent-windows.kdl"
 include "common/binds.kdl"
 include "common/layer-rule.kdl"
 include "common/window-rules.kdl"
