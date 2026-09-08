@@ -6,12 +6,11 @@
 // === Include Common Files ===
 include "common/basic.kdl"
 include "common/layout.kdl"
-include "common/recent-windows.kdl"
 include "common/binds.kdl"
+include "common/animations.kdl"
 include "common/layer-rule.kdl"
 include "common/window-rules.kdl"
-include "common/animations.kdl"
-
+include "common/recent-windows.kdl"
 
 // === Binds Section ===
 // Core DIY binds
