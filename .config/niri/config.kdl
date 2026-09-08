@@ -1,1 +1,108 @@
-niri_for_diy.kdl
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+
+// === Include Common Files ===
+include "common/basic.kdl"
+include "common/layout.kdl"
+include "common/alttab.kdl"
+include "common/binds.kdl"
+include "common/layer-rule.kdl"
+include "common/window-rules.kdl"
+include "common/animations.kdl"
+
+
+// === Binds Section ===
+// Core DIY binds
+binds {
+    // === System & Overview ===
+    Mod+F12 {
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar toggle";
+    }
+
+    Mod+F11 {
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock toggle";
+    }
+
+    Mod+Ctrl+F12 {
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar reload";
+    }
+
+    Mod+Ctrl+F11 {
+        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock reload";
+    }
+
+
+    Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
+        spawn-sh "systemctl --user start awww-rotate";
+    }
+
+    Super+X hotkey-overlay-title="Power Menu" { spawn "wlogout"; }
+    Mod+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
+    // === Application Launchers ===
+    Mod+V hotkey-overlay-title="Clipboard History" {
+        spawn-sh "cliphist list | fuzzel --dmenu 2>/dev/null | cliphist decode | wl-copy";
+    }
+
+    Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+        spawn "nautilus" "/home/swq/Pictures/Wallpapers";
+    }
+
+    // === Security ===
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" {
+        spawn "swaylock";
+    }
+
+    // === Audio Controls ===
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "wpctl" "set-volume" "--limit" "1.2" "@DEFAULT_AUDIO_SINK@" "5%+";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "wpctl" "set-volume" "--limit" "1.2" "@DEFAULT_AUDIO_SINK@" "5%-";
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+    }
+    XF86AudioMicMute allow-when-locked=true {
+        spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+    }
+    // XF86AudioPause allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "playPause";
+    // }
+    // XF86AudioPlay allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "playPause";
+    // }
+    // XF86AudioPrev allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "previous";
+    // }
+    // XF86AudioNext allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "next";
+    // }
+    // Ctrl+XF86AudioRaiseVolume allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "increment" "3";
+    // }
+    // Ctrl+XF86AudioLowerVolume allow-when-locked=true {
+    //     spawn "dms" "ipc" "call" "mpris" "decrement" "3";
+    // }
+
+    // === Brightness Controls ===
+    XF86MonBrightnessUp allow-when-locked=true {
+       spawn "brightnessctl" "set" "+5%";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+       spawn "brightnessctl" "set" "5%-";
+    }
+}
+
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+// This line starts waybar, a commonly used bar for Wayland compositors.
+// === Startup Section ===
+spawn-at-startup "mako"
+spawn-at-startup "fcitx5"
+spawn-at-startup "awww-daemon"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "waybar" "-b" "topbar" "-c" "/home/swq/.config/waybar/topbar.jsonc"

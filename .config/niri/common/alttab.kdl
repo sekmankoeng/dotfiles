@@ -1,5 +1,22 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+
+// === Recent Windows ===
+// Override to disable super+tab
 recent-windows {
+    binds {
+        Alt+Tab         { next-window scope="output"; }
+        Alt+Shift+Tab   { previous-window scope="output"; }
+        Alt+grave       { next-window filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+    }
+    
     highlight {
+        active-color   "#1f4d6f"
+        urgent-color   "#f38ba8"
+
         corner-radius 10
     }
 }
