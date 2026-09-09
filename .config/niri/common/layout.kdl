@@ -69,18 +69,26 @@ layout {
         active-color   "#ffffff"
         inactive-color "#6c7086"
         urgent-color   "#f38ba8"
-        width 1
+        width 2
     }
     
     tab-indicator {
-        // off
-        active-color   "#74c7ec"
+        //off
+        hide-when-single-tab
+        place-within-column
+        gap -8
+        width 8
+        position "left"
+        corner-radius 4
+        gaps-between-tabs 5
+        length total-proportion=0.5
+        active-color   "#f20808"
         inactive-color "#6c7086"
-        urgent-color   "#f38ba8"
+        urgent-color   "#db3444"
     }
     
     insert-hint {
-        // off
+        off
         color "#74c7ec80"
     }
 }
