@@ -14,9 +14,9 @@ touch "${LOCK}"
 trap "rm -f ${LOCK}" EXIT
 
 # 先优雅关闭，在重新启动
-if pgrep -f "${CMD[*]}" >/dev/null; then
+if pgrep -f "${CMD[*]}" > /dev/null; then
     pkill -f "${CMD[*]}"
-    while pgrep -f "${CMD[*]}" >/dev/null; do
+    while pgrep -f "${CMD[*]}" > /dev/null; do
         sleep 0.05
     done
 fi

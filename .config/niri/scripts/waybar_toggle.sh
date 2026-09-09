@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-set -x
+
 if [[ $# -ne 2 ]]; then
     echo "Usage: $0 [Bar-ID] [Action]"
     echo "    Bar-ID: [topbar, dock]"
@@ -32,4 +32,4 @@ if pgrep -f "waybar ${WAYBAR_ARGS[*]}" > /dev/null; then
 fi
 
 # launch new dock waybar
-setsid waybar "${WAYBAR_ARGS[@]}" >/dev/null 2>&1 &
+setsid waybar "${WAYBAR_ARGS[@]}" >/dev/null 2>&1

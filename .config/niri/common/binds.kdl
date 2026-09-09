@@ -32,7 +32,7 @@ binds {
     // === Security ===
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete hotkey-overlay-title="Logout" {
-        spawn "/home/swq/.config/niri/scripts/toggle_wlogout.sh";
+        spawn "/home/swq/.config/niri/scripts/wlogout_toggle.sh";
     }
 
     // === Window Management ===
