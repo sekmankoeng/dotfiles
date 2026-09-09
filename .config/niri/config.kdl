@@ -17,27 +17,28 @@ include "common/recent-windows.kdl"
 binds {
     // === System & Overview ===
     Mod+F12 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar toggle";
+        spawn-sh "/home/swq/.config/niri/scripts/toggle_waybar.sh topbar toggle";
     }
 
     Mod+F11 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock toggle";
+        spawn-sh "/home/swq/.config/niri/scripts/toggle_waybar.sh dock toggle";
     }
 
     Mod+Ctrl+F12 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh topbar reload";
+        spawn-sh "/home/swq/.config/niri/scripts/toggle_waybar.sh topbar reload";
     }
 
     Mod+Ctrl+F11 {
-        spawn-sh "/home/swq/.config/waybar/scripts/toggle_waybar.sh dock reload";
+        spawn-sh "/home/swq/.config/niri/scripts/toggle_waybar.sh dock reload";
     }
-
 
     Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
         spawn-sh "systemctl --user start awww-rotate";
     }
 
-    Super+X hotkey-overlay-title="Power Menu" { spawn "wlogout"; }
+    Super+X hotkey-overlay-title="Power Menu" {
+        spawn "/home/swq/.config/niri/scripts/toggle_wlogout.sh";
+    }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
     // === Application Launchers ===
     Mod+V hotkey-overlay-title="Clipboard History" {
