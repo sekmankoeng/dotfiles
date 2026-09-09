@@ -31,7 +31,7 @@ binds {
 
     // === Security ===
     Mod+Shift+E { quit; }
-    Ctrl+Alt+Delete hotkey-overlay-title="Logout" { spawn "wlogout"; }
+    Ctrl+Alt+Delete hotkey-overlay-title="Logout" { spawn-sh "wlogout -s"; }
 
     // === Window Management ===
     Mod+Q repeat=false { close-window; }
