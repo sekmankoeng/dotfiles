@@ -1,0 +1,26 @@
+# 自定义prompt主题 peach
+prompt_peach_setup() {
+  # PS1：主提示符（每行开头）
+  # %n 当前用户名，%m主机名，%~当前目录(简写家目录为~)，%# 普通用户%，root#
+  # %F{color} 前景色，%f 关闭颜色；%B粗体 %b取消粗体
+  local ret="%(?..%F{red}[%?]%f)"
+  PS1="$ret%F{green}%n@%m%f:%F{blue}%1~%f%# "
+
+  # PS2：换行续行提示符（命令没写完换行时）
+  PS2="%F{gray}>%f "
+
+  # PS3：select 菜单提示符（很少用到）
+  PS3="Select> "
+
+  # PS4：xtrace调试提示符 set -x 时
+  PS4="+%N:%i> "
+
+  # 清除变量
+  unset RPS1 RPS2 RPROMPT RPROMPT2
+  # 重新定义右侧提示符
+  RPS1="%F{${1:-green}}%~%f"
+  # 配置zsh shell选项数组
+  prompt_opts=(percent)
+}
+
+prompt_peach_setup "$@"
