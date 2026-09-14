@@ -1,26 +1,38 @@
 # 自定义prompt主题 peach
 prompt_peach_setup() {
-  # PS1：主提示符（每行开头）
-  # %n 当前用户名，%m主机名，%~当前目录(简写家目录为~)，%# 普通用户%，root#
-  # %F{color} 前景色，%f 关闭颜色；%B粗体 %b取消粗体
-  local ret="%(?..%F{red}[%?]%f)"
-  PS1="$ret%F{green}%n@%m%f:%F{blue}%~%f%# "
+    autoload -Uz vcs_info
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:git:*' check-for-changes true
+    zstyle ':vcs_info:git:*' stagedstr "✚"
+    zstyle ':vcs_info:git:*' unstagedstr "✶"
+    zstyle ':vcs_info:git:*' formats ' %b|%u%c'
+    zstyle ':vcs_info:git:*' actionformats ' %b|%a%u%c'
 
-  # PS2：换行续行提示符（命令没写完换行时）
-  PS2="%F{gray}>%f "
+    # 采用PS1方案时
+    #local ret="%(?..%F{red}[%?]%f)"
+    #local vcs_info=${vcs_info_msg_0_:+ %F{brightmagenta}(${vcs_info_msg_0_})%f}
+    #PS1="$ret%F{green}%n@%m%f:%F{blue}%~%f${vsc_info} %# "
 
-  # PS3：select 菜单提示符（很少用到）
-  PS3="Select> "
+    precmd_vcs_info() {
+        vcs_info
+        # ✅ 在precmd里面动态组装PROMPT，每次刷新都拿最新vcs值
+        local ret="%(?..%F{red}[%?]%f)"
+        local vcs_info=${vcs_info_msg_0_:+%F{brightmagenta}(${vcs_info_msg_0_})%f}
+        PROMPT="${ret}%F{green}%n@%m%f:%F{blue}%~%f${vcs_info} %F{green}%#%f "
+    }
+    # 防止多次 source 这个脚本时，重复往 precmd_functions 数组追加同一个函数 precmd_vcs_info
+    # precmd_functions: zsh 的特殊数组，里面放一堆函数名；每次绘制提示符前，zsh 会按顺序依次执行数组里全部函数。
+    # =~ " precmd_vcs_info ": 对展开的precmd_functions数组列表进行正则匹配，!若不存在才追加到数组中。
+    if [[ ! " ${precmd_functions[@]} " =~ " precmd_vcs_info " ]]; then
+        precmd_functions+=( precmd_vcs_info )
+    fi
 
-  # PS4：xtrace调试提示符 set -x 时
-  PS4="+%N:%i> "
+    PS2="%F{gray}>%f "
+    PS3="Select> "
+    PS4="+%N:%i> "
 
-  # 清除变量
-  unset RPS1 RPS2 RPROMPT RPROMPT2
-  # 重新定义右侧提示符
-  #RPS1="%F{${1:-green}}%~%f"
-  # 配置zsh shell选项数组
-  prompt_opts=(percent)
+    unset RPS1 RPS2 RPROMPT RPROMPT2
+    prompt_opts=(percent)
 }
-
 prompt_peach_setup "$@"
+
