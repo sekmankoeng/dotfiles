@@ -8,11 +8,6 @@ prompt_peach_setup() {
     zstyle ':vcs_info:git:*' formats ' %b|%u%c'
     zstyle ':vcs_info:git:*' actionformats ' %b|%a%u%c'
 
-    # 采用PS1方案时
-    #local ret="%(?..%F{red}[%?]%f)"
-    #local vcs_info=${vcs_info_msg_0_:+ %F{brightmagenta}(${vcs_info_msg_0_})%f}
-    #PS1="$ret%F{green}%n@%m%f:%F{blue}%~%f${vsc_info} %# "
-
     precmd_vcs_info() {
         vcs_info
         # ✅ 在precmd里面动态组装PROMPT，每次刷新都拿最新vcs值
@@ -27,6 +22,11 @@ prompt_peach_setup() {
         precmd_functions+=( precmd_vcs_info )
     fi
 
+    # 采用PS1方案时
+    #local ret="%(?..%F{red}[%?]%f)"
+    #local vcs_info=${vcs_info_msg_0_:+ %F{brightmagenta}(${vcs_info_msg_0_})%f}
+    #PS1="$ret%F{green}%n@%m%f:%F{blue}%~%f${vsc_info} %# "
+    
     PS2="%F{gray}>%f "
     PS3="Select> "
     PS4="+%N:%i> "
