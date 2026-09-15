@@ -5,14 +5,14 @@ prompt_peach_setup() {
     zstyle ':vcs_info:git:*' check-for-changes true
     zstyle ':vcs_info:git:*' stagedstr "✚"
     zstyle ':vcs_info:git:*' unstagedstr "✶"
-    zstyle ':vcs_info:git:*' formats ' %b|%u%c'
-    zstyle ':vcs_info:git:*' actionformats ' %b|%a%u%c'
+    zstyle ':vcs_info:git:*' formats ' %b %u%c'
+    zstyle ':vcs_info:git:*' actionformats ' %b %a%u%c'
 
     precmd_vcs_info() {
         vcs_info
         # ✅ 在precmd里面动态组装PROMPT，每次刷新都拿最新vcs值
         local ret="%(?..%F{red}[%?]%f)"
-        local vcs_info=${vcs_info_msg_0_:+%F{brightmagenta}(${vcs_info_msg_0_})%f}
+        local vcs_info=${vcs_info_msg_0_:+%F{brightmagenta}(${vcs_info_msg_0_% })%f}
         PROMPT="${ret}%F{green}%n@%m%f:%F{blue}%~%f${vcs_info} %F{green}%#%f "
     }
     # 防止多次 source 这个脚本时，重复往 precmd_functions 数组追加同一个函数 precmd_vcs_info
