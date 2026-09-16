@@ -73,6 +73,11 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+    match app-id="kitty" title="screen-saver"
+    open-fullscreen true
+}
+
 // === Common Window Rule ===
 // Applies to all windows
 window-rule {

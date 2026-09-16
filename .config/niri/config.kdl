@@ -36,8 +36,8 @@ binds {
         spawn-sh "systemctl --user start awww-rotate";
     }
 
-    Super+X hotkey-overlay-title="Power Menu" {
-        spawn "/home/swq/.config/niri/scripts/wlogout_toggle.sh";
+    Super+X hotkey-overlay-title="Fake ScreenSaver" {
+        spawn-sh "kitty --title screen-saver --single-instance tuigreet --config /etc/tuigreet/fake-screen-save.toml --mock";
     }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
     // === Application Launchers ===
