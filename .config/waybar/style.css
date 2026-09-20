@@ -240,13 +240,13 @@ window#waybar.topbar #custom-textBrowser:hover {
  */
 @keyframes blink {
   to {
-    background-color: @error;
-    color: @on_error_container;
+    background-color: green;
+    color: @on_surface;
   }
 }
 
-#battery icon {
-  color: @primary;
+#battery {
+  border-radius: 4px;
 }
 
 #battery.charging {
@@ -254,28 +254,6 @@ window#waybar.topbar #custom-textBrowser:hover {
   padding-left: 4px;
   padding-right: 2px;
   border-radius: 4px;
-}
-
-#battery.plugged {
-  margin: 1px;
-  padding-left: 8px;
-  padding-right: 10px;
-  border-radius: 4px;
-}
-
-#battery.charging,
-#battery.plugged {
-  background-color: @secondary_container;
-  color: @on_secondary_container;
-}
-#battery.warning:not(.charging) {
-  background-color: @error_container;
-  color: @on_error_container;
-
-  margin: 1px;
-  padding-left: 4px;
-  padding-right: 10px;
-  border-radius: 4px;
 
   animation-name: blink;
   animation-duration: 0.5s;
@@ -283,37 +261,22 @@ window#waybar.topbar #custom-textBrowser:hover {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+#battery.warning:not(.charging),
 #battery.critical:not(.charging) {
-  background-color: @error_container;
-  color: @on_error_container;
-  
+  color: @error;
   margin: 1px;
   padding-left: 4px;
   padding-right: 10px;
   border-radius: 4px;
-
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
-#battery.warning.plugged {
-  background-color: @secondary_container;
-  color: @on_secondary_container;
 
-  margin: 1px;
-  padding-left: 8px;
-  padding-right: 10px;
-  border-radius: 4px;
-}
+#battery.plugged,
+#battery.warning.plugged,
 #battery.critical.plugged {
-  background-color: @error_container;
-  color: @on_error_container;
-
   margin: 1px;
-  padding-left: 8px;
-  padding-right: 10px;
+  padding-left: 7px;
+  padding-right: 9px;
   border-radius: 4px;
 }
 
