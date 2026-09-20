@@ -33,7 +33,7 @@ binds {
     }
 
     Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
-        spawn-sh "systemctl --user start awww-rotate";
+        spawn-sh "systemctl --user start theme-rotate";
     }
 
     Super+X hotkey-overlay-title="Fake ScreenSaver" {
