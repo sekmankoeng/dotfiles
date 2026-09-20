@@ -6,7 +6,8 @@
     "height": 33,
     "spacing": 2,
     "modules-left": [
-      "image#launcher",
+      // "image#launcher",
+      "custom/launcher",
       "custom/textFile",
       "custom/textEdit",
       "custom/textMusic",
@@ -80,6 +81,12 @@
     "image#launcher": {
       "path": "/home/swq/.config/waybar/icons/peach-round-dark.svg",
       "size": 20,
+      "on-click": "niri msg action spawn -- fuzzel --show drun",
+      "tooltips": false
+    },
+    "custom/launcher": {
+      // "format": "   ", // for background-image in style.css
+      "format": "🍑",
       "on-click": "niri msg action spawn -- fuzzel --show drun",
       "tooltips": false
     },

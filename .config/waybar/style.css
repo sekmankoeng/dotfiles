@@ -1,4 +1,4 @@
-@import "color.css";
+@import "colors.css";
 
 /**
  * Global Base
@@ -15,29 +15,30 @@
  * dock / topbar 两个实例，保留原有背景、颜色参数不变
  */
 window#waybar.dock {
-  background: rgba(255, 255, 255, 0.5);
-  color: rgb(0, 0, 0);
+  background: alpha(@surface, 0.5);
+  color: @on_surface;
   border-radius: 10px;
 }
 
 window#waybar.topbar {
-  background: rgba(255, 255, 255, 0.5);
-  color: rgb(0, 0, 0);
+  background: alpha(@surface, 0.5);
+  color: @on_surface;
 }
 
 window#waybar {
-  background: rgba(255, 255, 255, 0.5);
-  color: rgb(0, 0, 0);
+  background: alpha(@surface, 0.5);
+  color: @on_surface;
 }
 
 /**
  * Tooltip
  */
 tooltip {
-  background: rgba(0, 0, 0, 0.8);
+  background: alpha(@surface_container_highest, 0.5);
+  border: 1px solid @outline_variant;
 }
 tooltip label {
-  color: white;
+  color: @on_surface;
 }
 
 /**
@@ -45,8 +46,7 @@ tooltip label {
  */
 #workspaces button {
   background: transparent;
-  color: black;
-  padding: 0 5px;
+  color: @on_surface_variant;
   margin: 0 2px; /* 按钮之间的间距，不要和外层margin混淆 */
   border-bottom: transparent;
   text-shadow: none;
@@ -55,17 +55,14 @@ tooltip label {
   outline: none;
 }
 
-#workspaces button:focuse {
-  background: transparent;
-  border-bottom: transparent;
-  text-shadow: none;
-  box-shadow: none;
-  border: none;
-  outline: none;
+#workspaces button:focus {
+  background: @primary_container;
+  color: @on_primary_container;
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: @surface_container_high;
+  color: @on_surface;
   border-bottom: transparent;
   text-shadow: none;
   box-shadow: none;
@@ -77,8 +74,9 @@ tooltip label {
  * Mode
  */
 #mode {
-  background: #64727d;
-  border-bottom: 3px solid white;
+  background: @secondary_container;
+  color: @on_secondary_container;
+  border-bottom: 3px solid @primary;
   padding: 0 10px;
 }
 
@@ -89,11 +87,21 @@ tooltip label {
  */
 
 /* -------------- Common System Modules -------------- */
+#custom-launcher {
+  /* background-image: url('/home/swq/.config/waybar/icons/peach-round-dark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px; */
+  padding-left: 4px;
+  padding-right: 5px;
+  color: @on_surface;
+}
+
 #image {
   margin: 1px;
   padding-left: 4px;
   padding-right: 5px;
-  color: #000000;
+  color: @on_surface;
 }
 
 #workspaces,
@@ -106,7 +114,7 @@ tooltip label {
   margin: 1px;
   padding-left: 4px;
   padding-right: 4px;
-  color: #000000;
+  color: @on_surface;
 }
 
 /* 部分模块的图标并不居中需要调整 */
@@ -114,21 +122,21 @@ tooltip label {
   margin: 1px;
   padding-left: 2px;
   padding-right: 10px;
-  color: #000000;
+  color: @on_surface;
 }
 
 #power-profiles-daemon {
   margin: 1px;
   padding-left: 4px;
   padding-right: 9px;
-  color: #000000;
+  color: @on_surface;
 }
 
 #battery {
   margin: 1px;
   padding-left: 4px;
   padding-right: 12px;
-  color: #000000;
+  color: @on_surface;
 }
 
 #network,
@@ -136,7 +144,7 @@ tooltip label {
   margin: 1px;
   padding-left: 4px;
   padding-right: 10px;
-  color: #000000;
+  color: @on_surface;
 }
 
 #wireplumber,
@@ -144,7 +152,7 @@ tooltip label {
   margin: 1px;
   padding-left: 4px;
   padding-right: 6px;
-  color: #000000;
+  color: @on_surface;
   font-size: 18px;
 }
 
@@ -152,7 +160,7 @@ tooltip label {
   margin: 1px;
   padding-left: 10px;
   padding-right: 2px;
-  color: #000000;
+  color: @on_surface;
 }
 
 window#waybar.topbar #custom-textFile,
@@ -162,11 +170,12 @@ window#waybar.topbar #custom-textBrowser {
   margin: 1px;
   padding-left: 2px;
   padding-right: 2px;
-  color:#000000
+  color:@on_surface
 }
 
 /* -------------- Hover -------------- */
 window#waybar.topbar #image:hover,
+window#waybar.topbar #custom-launcher:hover,
 window#waybar.topbar #power-profiles-daemon:hover,
 window#waybar.topbar #idle_inhibitor:hover,
 window#waybar.topbar #temperature:hover,
@@ -180,7 +189,7 @@ window#waybar.topbar #backlight:hover,
 window#waybar.topbar #battery:hover,
 window#waybar.topbar #clock:hover,
 window#waybar.topbar #custom-wlogout:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: alpha(@surface_container_high, 0.5);
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(0, 0, 0, 0.5);
 }
@@ -189,8 +198,8 @@ window#waybar.topbar #custom-textFile:hover,
 window#waybar.topbar #custom-textEdit:hover,
 window#waybar.topbar #custom-textMusic:hover,
 window#waybar.topbar #custom-textBrowser:hover {
-  background: rgba(0, 0, 0, 0.5);
-  color: rgba(255, 255, 255, 0.8);
+  background: alpha(@surface_container_high, 0.5);;
+  color: alpha(@on_surface, 0.5);
   margin: 1px;
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(0, 0, 0, 0.5);
@@ -200,7 +209,7 @@ window#waybar.topbar #custom-textBrowser:hover {
  * Cava visualizer
  */
 #cava {
-  color:#64727d;
+  color:@secondary;
 }
 #cava.updated {
   background: transparent;
@@ -231,13 +240,13 @@ window#waybar.topbar #custom-textBrowser:hover {
  */
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: @error;
+    color: @on_error_container;
   }
 }
 
 #battery icon {
-  color: red;
+  color: @primary;
 }
 
 #battery.charging {
@@ -256,12 +265,12 @@ window#waybar.topbar #custom-textBrowser:hover {
 
 #battery.charging,
 #battery.plugged {
-  background-color: #26a65b;
-  color: #ffffff;
+  background-color: @secondary_container;
+  color: @on_secondary_container;
 }
 #battery.warning:not(.charging) {
-  background-color: gold;
-  color: #ffffff;
+  background-color: @error_container;
+  color: @on_error_container;
 
   margin: 1px;
   padding-left: 4px;
@@ -275,8 +284,8 @@ window#waybar.topbar #custom-textBrowser:hover {
   animation-direction: alternate;
 }
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #ffffff;  
+  background-color: @error_container;
+  color: @on_error_container;
   
   margin: 1px;
   padding-left: 4px;
@@ -290,8 +299,8 @@ window#waybar.topbar #custom-textBrowser:hover {
   animation-direction: alternate;
 }
 #battery.warning.plugged {
-  background-color: gold;
-  color: #ffffff;
+  background-color: @secondary_container;
+  color: @on_secondary_container;
 
   margin: 1px;
   padding-left: 8px;
@@ -299,8 +308,8 @@ window#waybar.topbar #custom-textBrowser:hover {
   border-radius: 4px;
 }
 #battery.critical.plugged {
-  background-color: #f53c3c;
-  color: #ffffff;
+  background-color: @error_container;
+  color: @on_error_container;
 
   margin: 1px;
   padding-left: 8px;
@@ -312,16 +321,16 @@ window#waybar.topbar #custom-textBrowser:hover {
  * Other module states
  */
 label:focus {
-  background-color: #000000;
+  background-color: @surface_container;
 }
 #network.disconnected {
-  color: #000000;
+  color: @error;
 }
 #temperature.critical {
-  color: #f53c3c;
+  color: @error;
 }
 #idle_inhibitor.activated {
-  color: #000000;
+  color: @primary;
 }
 
 /**
@@ -332,7 +341,7 @@ label:focus {
 }
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #f53c3c;
+  background-color: @error_container;
 }
 
 /**
@@ -344,8 +353,8 @@ window#waybar #custom-os_button {
   transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 window#waybar #custom-os_button:hover {
-  background: white;
-  color: black;
+  background: @primary_container;
+  color: @on_primary_container;
 }
 
 /* topbar 实例字号 */
@@ -366,9 +375,9 @@ window#waybar.dock #taskbar button {
   background: transparent;
   border-radius: 10px;
   min-width: 32px;
-  /* min-height: 32px; */
   padding: 0 10px;
   margin: 0;
+  color: @on_surface;
   text-shadow: none;
   box-shadow: none;
   border: none;
@@ -376,7 +385,7 @@ window#waybar.dock #taskbar button {
 }
 
 window#waybar.dock #taskbar button:hover {
-  background: rgba(0,0,0,0.24);
+  background: @surface_container_high;
   border-radius: 10px; /* hover下必须重写圆角 */
   text-shadow: none;
   box-shadow: none;
@@ -395,6 +404,7 @@ window#waybar.dock #custom-spotlight {
   /* min-height: 32px; */
   padding: 0 10px;
   margin: 0;
+  color: @on_surface;
 }
 
 window#waybar.dock #custom-trash {
@@ -406,7 +416,7 @@ window#waybar.dock #custom-trash {
 window#waybar.dock #custom-trash:hover,
 window#waybar.dock #custom-nautilus:hover,
 window#waybar.dock #custom-spotlight:hover {
-  background: rgba(0,0,0,0.24);
+  background: @surface_container_high;
   border-radius: 10px;
   border: none;
 }
@@ -423,4 +433,3 @@ window#waybar.dock #custom-nautilus label {
 window#waybar.dock #custom-trash label {
   font-size: 40px;
 }
-
