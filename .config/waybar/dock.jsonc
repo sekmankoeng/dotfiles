@@ -7,6 +7,7 @@
     "width": 128,
     "margin": "2px",
     "spacing": 2,
+    "exclusive": false,
     "expand-center": false,
     "expand-left": false,
     "expand-right": false,
