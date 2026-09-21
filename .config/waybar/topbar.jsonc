@@ -6,8 +6,8 @@
     "height": 33,
     "spacing": 2,
     "modules-left": [
-      // "image#launcher",
-      "custom/launcher",
+      "image#launcher",
+      //"custom/launcher",
       "custom/textFile",
       "custom/textEdit",
       "custom/textMusic",
