@@ -24,7 +24,7 @@ set completeopt+=menuone mouse=a
 set number laststatus=2
 set expandtab tabstop=4 shiftwidth=4
 set ignorecase smartcase incsearch hlsearch
-set list listchars=tab:▸\ ,trail:·,extends:›,precedes:‹,nbsp:␣
+set list listchars=tab:▸\ ,trail:·,extends:›,precedes:‹,nbsp:␣,eol:$
 set background=dark t_Co=256 term=xterm-256color termguicolors 
 set sc nowrap noswapfile nosmd hidden splitright splitbelow belloff=all
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
