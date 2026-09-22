@@ -48,6 +48,8 @@ tooltip label {
   background: transparent;
   color: @on_surface_variant;
   margin: 0 2px; /* 按钮之间的间距，不要和外层margin混淆 */
+  padding-left: 6px;
+  padding-right: 10px;
   border-bottom: transparent;
   text-shadow: none;
   box-shadow: none;
