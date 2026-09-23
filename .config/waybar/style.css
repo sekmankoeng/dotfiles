@@ -166,6 +166,38 @@ tooltip label {
   font-size: 18px;
 }
 
+#pulseaudio-slider,
+#backlight-slider {
+  min-height: 0;
+  min-width: 60px;
+}
+
+#pulseaudio-slider slider,
+#backlight-slider slider {
+  min-height: 2px;
+  min-width: 2px;
+  opacity: 50;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough,
+#backlight-slider trough {
+  min-height: 4px;
+  min-width: 60px;
+  border-radius: 2px;
+  background: alpha(@on_surface, 0.5);
+}
+
+#pulseaudio-slider highlight,
+#backlight-slider highlight {
+  min-height: 4px;
+  border-radius: 2px;
+  border-color: @on_surface;
+  background: @on_surface;
+}
+
 #custom-wlogout {
   margin: 1px;
   padding-left: 10px;
@@ -196,7 +228,9 @@ window#waybar.topbar #disk:hover,
 window#waybar.topbar #network:hover,
 window#waybar.topbar #wireplumber:hover,
 window#waybar.topbar #pulseaudio:hover,
+window#waybar.topbar #pulseaudio-slider:hover,
 window#waybar.topbar #backlight:hover,
+window#waybar.topbar #backlight-slider:hover,
 window#waybar.topbar #battery:hover,
 window#waybar.topbar #clock:hover,
 window#waybar.topbar #custom-wlogout:hover {
