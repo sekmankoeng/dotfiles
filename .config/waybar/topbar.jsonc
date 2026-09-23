@@ -5,13 +5,19 @@
     "position": "top",
     "height": 33,
     "spacing": 2,
+    "expand-center": false,
+    "expand-left": false,
+    "expand-right": false,
+    "fixed-center": true,
     "modules-left": [
       "image#launcher",
       //"custom/launcher",
       "custom/textFile",
       "custom/textEdit",
       "custom/textMusic",
-      "custom/textBrowser"
+      "custom/textBrowser",
+      "custom/separator",
+      "mpd"
     ],
     "modules-center": [
       "niri/workspaces"
@@ -111,8 +117,7 @@
       "exec": "echo 'Music'",
       "interval": 60,
       "return-type": "plain",
-      "on-click": "niri msg action spawn -- kitty --title cava --single-instance --session /home/swq/.config/kitty/sessions/music-player.session",
-      "tooltip-format": "Ncmpcpp + Cava"
+      "on-click": "niri msg action spawn -- /home/swq/.config/niri/scripts/launch_music.sh"
     },
 
     "custom/textBrowser": {
@@ -134,11 +139,11 @@
     },
 
     "mpd": {
-      "format": "  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]",
-      "format-disconnected": " Disconnected",
-      "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+      "format": "󰲑 {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}]",
+      "format-disconnected": "󰲑 Disconnected",
+      "format-stopped": "󰲑 {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
       "unknown-tag": "N/A",
-      "interval": 2,
+      "interval": 1,
       "consume-icons": {
         "on": " "
       },
@@ -149,16 +154,16 @@
         "on": " "
       },
       "single-icons": {
-        "on": "1 "
+        "on": ". "
       },
       "state-icons": {
         "paused": "",
         "playing": ""
       },
-      "tooltip-format": "MPD (connected)",
+      "tooltip-format": "MPD (connected) 󰕾:{volume}%\n{title} - {artist}",
       "tooltip-format-disconnected": "MPD (disconnected)",
       "on-click": "niri msg action spawn -- mpc toggle",
-      "on-click-right": "niri msg action spawn -- kitty -e ncmpcpp",
+      "on-click-right": "niri msg action spawn -- /home/swq/.config/niri/scripts/launch_music.sh",
       "on-scroll-up": "niri msg action spawn -- mpc volume +2",
       "on-scroll-down": "niri msg action spawn -- mpc volume -2"
     },
@@ -240,7 +245,7 @@
       "events": {
         "on-discharging-warning": "notify-send -u normal 'Battery Status' 'Low Battery'",
         "on-discharging-critical": "notify-send -u critical 'Battery Status' 'Critical Battery'",
-        "on-charging-100": "notify-send -u normal 'Battery Status' 'Battery Full!'",
+        //"on-charging-100": "notify-send -u normal 'Battery Status' 'Battery Full!'",
         "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
         "on-charging": "notify-send -u normal 'Power Switch' Charging"
       },
@@ -339,6 +344,13 @@
       //     "hibernate": "systemctl hibernate"
       // }
 
-    }
+    },
+
+    "custom/separator": {
+      "format": "|",
+      "icon-size": 36,
+      "spacing": 2,
+      "tooltip": false
+    },
   }
 ]

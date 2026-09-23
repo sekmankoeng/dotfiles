@@ -48,8 +48,8 @@ tooltip label {
   background: transparent;
   color: @on_surface_variant;
   margin: 0 2px; /* 按钮之间的间距，不要和外层margin混淆 */
-  padding-left: 6px;
-  padding-right: 10px;
+  padding-left: 7px;
+  padding-right: 6px;
   border-bottom: transparent;
   text-shadow: none;
   box-shadow: none;
@@ -103,6 +103,14 @@ tooltip label {
   margin: 1px;
   padding-left: 4px;
   padding-right: 5px;
+  color: @on_surface;
+}
+
+#mpd {
+  margin: 1px;
+  padding-top: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
   color: @on_surface;
 }
 
@@ -178,6 +186,7 @@ window#waybar.topbar #custom-textBrowser {
 /* -------------- Hover -------------- */
 window#waybar.topbar #image:hover,
 window#waybar.topbar #custom-launcher:hover,
+window#waybar.topbar #mpd:hover,
 window#waybar.topbar #power-profiles-daemon:hover,
 window#waybar.topbar #idle_inhibitor:hover,
 window#waybar.topbar #temperature:hover,
