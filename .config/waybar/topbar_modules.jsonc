@@ -1,0 +1,441 @@
+{
+    /* === group/left === */
+    "group/pod": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": true,
+            "click-to-reveal": false,
+            "reveal-delay": 500
+        },
+        "modules": [
+            "custom/pod",
+            "mpd"
+        ]
+    },
+    "group/menu": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/textFile",
+            "custom/textEdit",
+            "custom/textMusic",
+            "custom/textBrowser"
+        ]
+    },
+    "group/left": {
+        "orientation": "horizontal",
+        "modules": [
+            "image#launcher",
+            "group/menu",
+            "group/pod"
+        ]
+    },
+    /* === group/center === */
+    "group/center": {
+        "orientation": "horizontal",
+        "modules": [
+            "niri/workspaces"
+        ]
+    },
+    /* === group/right === */
+    "group/group-pulseaudio": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-left-to-right": true,
+            "reveal-delay": 450
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+    "group/group-backlight": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-left-to-right": true,
+            "reveal-delay": 450
+        },
+        "modules": [
+            "backlight",
+            "backlight/slider"
+        ]
+    },
+    "group/right": {
+        "orientation": "horizontal",
+        "modules": [
+            "idle_inhibitor",
+            "power-profiles-daemon",
+            "temperature",
+            "cpu",
+            "memory",
+            "disk",
+            "network",
+            "group/group-pulseaudio",
+            "group/group-backlight",
+            "battery",
+            "tray",
+            "clock",
+            "custom/wlogout"
+        ]
+    },
+    /* === modules === */
+    "image#launcher": {
+        "path": "/home/swq/.config/waybar/icons/peach-round-dark.svg",
+        "size": 20,
+        "on-click": "niri msg action spawn -- fuzzel --show drun",
+        "tooltips": false
+    },
+    "custom/launcher": {
+        // "format": "   ", // for background-image in style.css
+        "format": "🍑",
+        "on-click": "niri msg action spawn -- fuzzel --show drun",
+        "tooltips": false
+    },
+    "cava": {
+        "framerate": 30,
+        "autosens": 1,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "hide_on_silence": false,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.6,
+        "input_delay": 4,
+        "sleep_timer": 1,
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ]
+    },
+    "custom/textFile": {
+        "exec": "echo 'File'",
+        "interval": 60,
+        "return-type": "plain",
+        "on-click": "niri msg action spawn -- nautilus",
+        "tooltip-format": "Nautilus"
+    },
+    "custom/textEdit": {
+        "exec": "echo 'Edit'",
+        "interval": 60,
+        "return-type": "plain",
+        "on-click": "niri msg action spawn -- kitty --title vim --single-instance --execute vim",
+        "tooltip-format": "Vim"
+    },
+    "custom/textMusic": {
+        "exec": "echo 'Music'",
+        "interval": 60,
+        "return-type": "plain",
+        "on-click": "niri msg action spawn -- /home/swq/.config/niri/scripts/launch_music.sh"
+    },
+    "custom/textBrowser": {
+        "exec": "echo 'Browser'",
+        "interval": 60,
+        "return-type": "plain",
+        "on-click": "niri msg action spawn -- firefox",
+        "tooltip-format": "Firefox"
+    },
+    "custom/pod": {
+        "format": "󰲑",
+        "icon-size": 36,
+        "spacing": 2,
+        "tooltip": false
+    },
+    "mpd": {
+        "format": "{stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}]",
+        "format-disconnected": "Disconnected",
+        "format-stopped": " [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
+        "unknown-tag": "N/A",
+        "interval": 1,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": ". "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected) 󰕾:{volume}%\n{title} - {artist}",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "niri msg action spawn -- mpc toggle",
+        "on-click-right": "niri msg action spawn -- /home/swq/.config/niri/scripts/launch_music.sh",
+        "on-scroll-up": "niri msg action spawn -- mpc volume +2",
+        "on-scroll-down": "niri msg action spawn -- mpc volume -2"
+    },
+    "niri/window": {
+        "format": " {title}",
+        //"format": "{icon} {title}",
+        "format-icons": {
+            "floating": "",
+            "maximized": "",
+            "fullscreen": ""
+        },
+        "tooltip-format": "{title}\n{class}\n{instance}\n{workspace}"
+    },
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "on-scroll-up": "niri msg action focus-workspace-up",
+        "on-scroll-down": "niri msg action focus-workspace-down",
+        "sort-by-id": true
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "format-icons": {
+            //"performance": "󰓅",
+            //"balanced": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        },
+        "tooltip-format": "{profile}"
+    },
+    "temperature": {
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{icon} {temperatureC}󰔄",
+        "format": "{icon} {temperatureC}󰔄",
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%"
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {percentage}%",
+        "tooltip-format": "Memory Usage: {percentage}%\nUsed: {used:0.1f}G\nFree: {avail:0.1f}G\nTotal: {total:0.1f}G\n --- Swap {swapState} --- \nSwap Usage: {swapPercentage}%\nUsed: {swapUsed:0.1f}G\nFree: {swapAvail:0.1f}G\nTotal: {swapTotal:0.1f}G"
+    },
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "tooltip-format": "Disk Usage: {percentage_used}%\nUsed: {used}\nFree: {free}\nTotal: {total}"
+    },
+    "network": {
+        // 若interval设置小于 3 秒，高速轮询 nl80211 极易触发 [warning] nl80211: nl_send_sync get_station error -5/-16错误。
+        "interval": 5,
+        "format-wifi": "{icon}",
+        "format-ethernet": "{icon}",
+        "format-disconnected": "{icon}",
+        "format-linked": "{icon}",
+        "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)\n Interface: {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
+        "tooltip-format-ethernet": "{icon} {ifname}\n Address: {ipaddr}/{cidr}\n Gateway: {gwaddr}\n UpBits: {bandwidthUpBits}\n DownBits: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "{icon} Network Disconnected!",
+        "tooltip-format-linked": "{icon} No IP Address!",
+        "on-click": "/home/swq/.config/waybar/scripts/wifi_toggle.sh",
+        "on-click-right": "/home/swq/.config/waybar/scripts/wifi_select.sh",
+        "format-icons": {
+            "wifi": [
+                "󰤯",
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ],
+            "ethernet": [
+                "󰈀"
+            ],
+            "disconnected": [
+                "󱄁"
+            ],
+            "linked": [
+                "󰌹"
+            ]
+        }
+    },
+    "pulseaudio": {
+        "format": "{format_source} {icon}",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
+        "format-muted": "{format_source} 󰖁",
+        "format-icons": {
+            "headphone": "󰋋",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+            //"default": [ "", "", "", "" ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "tooltip-format": "󰍬 Input Volume: {source_volume}\n󰕾 Output Volume: {volume}%"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "expand": true,
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    },
+    "wireplumber#sink": {
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "format-icons": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ],
+        //"format-icons": [ "", "", "" ]
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "tooltip-format": "󰕾 Output Volume: {volume}%"
+    },
+    "wireplumber#source": {
+        "node-type": "Audio/Source",
+        "format": "{icon}",
+        "format-muted": "󰍭",
+        "format-icons": [
+            "󰍬"
+        ],
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "scroll-step": 5,
+        "tooltip-format": "󰕾 Output Volume: {volume}%"
+    },
+    "backlight": {
+        "scroll-step": 2,
+        "min-brightness": 10.0,
+        "format": "{icon}",
+        //"format-icons": [ "", "", "", "", "", "", "", "", "" ],
+        //"format-icons": [ "󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨" ],
+        "format-icons": [
+            "󰃝",
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "tooltip-format": "Backlight: {percent}%"
+    },
+    "backlight/slider": {
+        "min": 10,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
+    },
+    "battery": {
+        "interval": 3,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "events": {
+            "on-discharging-warning": "notify-send -u normal 'Battery Status' 'Low Battery'",
+            "on-discharging-critical": "notify-send -u critical 'Battery Status' 'Critical Battery'",
+            //"on-charging-100": "notify-send -u normal 'Battery Status' 'Battery Full!'",
+            "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
+            "on-charging": "notify-send -u normal 'Power Switch' Charging"
+        },
+        "format": "{icon}",
+        "format-charging": "{icon} 󱐋",
+        "format-plugged": "",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "Health: {health}\nCapacity: {capacity}%\nTimeToEmpty: {time}",
+        "tooltip-format-charging": "Health: {health}\nCapacity: {capacity}%\nTimeToFull: {time}"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "<span><b>{:%H:%M %p}</b></span>",
+        "format-alt": "<span><b>{:%a %b %d %R %p}</b></span>",
+        "tooltip-format": "<span><small>{calendar}</small></span>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "custom/wlogout": {
+        "format": "⏻ ",
+        "tooltip": false,
+        // 使用wlogout作为弹出菜单的方式，点击power图标直接弹出wlogout界面
+        "on-click": "niri msg action spawn -- wlogout",
+        "tooltips": false
+        // 使用waybar menu及自定义xml文件作为弹出菜单的方式，点击power图标直接弹出自定义菜单
+        // "menu": "on-click",
+        // "menu-file": "/usr/share/waybar/custom_modules/power_menu.xml", // Menu file in resources folder
+        // "menu-actions": {
+        //     "shutdown": "systemctl shutdown",
+        //     "reboot": "systemctl reboot",
+        //     "suspend": "systemctl suspend",
+        //     "hibernate": "systemctl hibernate"
+        // }
+    },
+    "custom/arrow-left": {
+        "format": "",
+        "tooltip": false,
+        "cursor": true
+    },
+    "custom/arrow-right": {
+        "format": "",
+        "tooltip": false,
+        "cursor": true
+    },
+    "custom/separator": {
+        "format": "|",
+        "icon-size": 36,
+        "spacing": 2,
+        "tooltip": false
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    }
+}

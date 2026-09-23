@@ -37,8 +37,15 @@ tooltip {
   background: alpha(@surface_container_highest, 0.5);
   border: 1px solid @outline_variant;
 }
+
 tooltip label {
   color: @on_surface;
+}
+
+#left,
+#right {
+  border-radius: 10px;
+  padding: 0 4px;
 }
 
 /**
@@ -47,7 +54,8 @@ tooltip label {
 #workspaces button {
   background: transparent;
   color: @on_surface_variant;
-  margin: 0 2px; /* 按钮之间的间距，不要和外层margin混淆 */
+  margin: 0 2px;
+  /* 按钮之间的间距，不要和外层margin混淆 */
   padding-left: 7px;
   padding-right: 6px;
   border-bottom: transparent;
@@ -103,6 +111,22 @@ tooltip label {
   margin: 1px;
   padding-left: 4px;
   padding-right: 5px;
+  color: @on_surface;
+}
+
+#custom-arrow-left,
+#custom-arrow-right {
+  margin: 1px;
+  padding-top: 2px;
+  color: @on_surface;
+}
+
+#custom-pod {
+  margin: 1px;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 32px;
   color: @on_surface;
 }
 
@@ -212,12 +236,13 @@ window#waybar.topbar #custom-textBrowser {
   margin: 1px;
   padding-left: 2px;
   padding-right: 2px;
-  color:@on_surface
+  color: @on_surface
 }
 
 /* -------------- Hover -------------- */
 window#waybar.topbar #image:hover,
 window#waybar.topbar #custom-launcher:hover,
+window#waybar.topbar #custom-pod:hover,
 window#waybar.topbar #mpd:hover,
 window#waybar.topbar #power-profiles-daemon:hover,
 window#waybar.topbar #idle_inhibitor:hover,
@@ -243,7 +268,8 @@ window#waybar.topbar #custom-textFile:hover,
 window#waybar.topbar #custom-textEdit:hover,
 window#waybar.topbar #custom-textMusic:hover,
 window#waybar.topbar #custom-textBrowser:hover {
-  background: alpha(@surface_container_high, 0.5);;
+  background: alpha(@surface_container_high, 0.5);
+  ;
   color: alpha(@on_surface, 0.5);
   margin: 1px;
   border-radius: 4px;
@@ -254,8 +280,9 @@ window#waybar.topbar #custom-textBrowser:hover {
  * Cava visualizer
  */
 #cava {
-  color:@secondary;
+  color: @secondary;
 }
+
 #cava.updated {
   background: transparent;
   border-radius: 12px;
@@ -272,10 +299,11 @@ window#waybar.topbar #custom-textBrowser:hover {
 /**
  * Layout helper rules
  */
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
   margin-left: 0;
 }
-.modules-right > widget:last-child > #workspaces {
+
+.modules-right>widget:last-child>#workspaces {
   margin-right: 0;
 }
 
@@ -331,12 +359,15 @@ window#waybar.topbar #custom-textBrowser:hover {
 label:focus {
   background-color: @surface_container;
 }
+
 #network.disconnected {
   color: @error;
 }
+
 #temperature.critical {
   color: @error;
 }
+
 #idle_inhibitor.activated {
   color: @primary;
 }
@@ -344,10 +375,11 @@ label:focus {
 /**
  * Tray
  */
-#tray > .passive {
+#tray>.passive {
   -gtk-icon-effect: dim;
 }
-#tray > .needs-attention {
+
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @error_container;
 }
@@ -360,6 +392,7 @@ label:focus {
 window#waybar #custom-os_button {
   transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
 window#waybar #custom-os_button:hover {
   background: @primary_container;
   color: @on_primary_container;
@@ -371,10 +404,11 @@ window#waybar.topbar #custom-os_button label {
 }
 
 /* dock 居中布局 */
-window#waybar.dock #modules-center{
+window#waybar.dock #modules-center {
   background: transparent;
 }
-window#waybar.dock #bar > box{
+
+window#waybar.dock #bar>box {
   background: transparent;
 }
 
@@ -394,7 +428,8 @@ window#waybar.dock #taskbar button {
 
 window#waybar.dock #taskbar button:hover {
   background: @surface_container_high;
-  border-radius: 10px; /* hover下必须重写圆角 */
+  border-radius: 10px;
+  /* hover下必须重写圆角 */
   text-shadow: none;
   box-shadow: none;
   border: none;
