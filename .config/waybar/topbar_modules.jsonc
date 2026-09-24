@@ -1,6 +1,6 @@
 {
     /* === group/left === */
-    "group/music": {
+    "group/media-group": {
         "orientation": "horizontal",
         "drawer": {
             "transition-duration": 500,
@@ -13,7 +13,7 @@
             "mpd"
         ]
     },
-    "group/menu": {
+    "group/menu-group": {
         "orientation": "horizontal",
         "modules": [
             "custom/textFile",
@@ -26,8 +26,8 @@
         "orientation": "horizontal",
         "modules": [
             "image#launcher",
-            "group/menu",
-            "group/music"
+            "group/menu-group",
+            "group/media-group"
         ]
     },
     /* === group/center === */
@@ -38,7 +38,7 @@
         ]
     },
     /* === group/right === */
-    "group/group-pulseaudio": {
+    "group/pulseaudio-group": {
         "orientation": "horizontal",
         "drawer": {
             "transition-duration": 600,
@@ -50,7 +50,7 @@
             "pulseaudio/slider"
         ]
     },
-    "group/group-backlight": {
+    "group/backlight-group": {
         "orientation": "horizontal",
         "drawer": {
             "transition-duration": 600,
@@ -62,19 +62,30 @@
             "backlight/slider"
         ]
     },
-    "group/right": {
+    "group/information-group": {
         "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-left-to-right": true,
+            "reveal-delay": 450
+        },
         "modules": [
-            "idle_inhibitor",
-            "inhibitor",
-            "power-profiles-daemon",
-            "temperature",
             "cpu",
             "memory",
             "disk",
+            "temperature"
+        ]
+    },
+    "group/right": {
+        "orientation": "horizontal",
+        "modules": [
+            "group/information-group",
+            "idle_inhibitor",
+            "inhibitor",
+            "power-profiles-daemon",
             "network",
-            "group/group-pulseaudio",
-            "group/group-backlight",
+            "group/pulseaudio-group",
+            "group/backlight-group",
             "battery",
             "tray",
             "clock",

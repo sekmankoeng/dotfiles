@@ -208,6 +208,8 @@ tooltip label {
 #backlight-slider {
   min-height: 0;
   min-width: 60px;
+  padding-left: 2px;
+  padding-right: 8px;
 }
 
 #pulseaudio-slider slider,
@@ -268,10 +270,8 @@ window#waybar.topbar #memory:hover,
 window#waybar.topbar #disk:hover,
 window#waybar.topbar #network:hover,
 window#waybar.topbar #wireplumber:hover,
-window#waybar.topbar #pulseaudio:hover,
-window#waybar.topbar #pulseaudio-slider:hover,
-window#waybar.topbar #backlight:hover,
-window#waybar.topbar #backlight-slider:hover,
+window#waybar.topbar #pulseaudio-group:hover,
+window#waybar.topbar #backlight-group:hover,
 window#waybar.topbar #battery:hover,
 window#waybar.topbar #clock:hover,
 window#waybar.topbar #custom-wlogout:hover {
