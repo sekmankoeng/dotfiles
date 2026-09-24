@@ -150,6 +150,7 @@ tooltip label {
   padding-left: 4px;
   padding-right: 4px;
   color: @on_surface;
+  font-size: 18px;
 }
 
 /* 部分模块的图标并不居中需要调整 */
@@ -182,6 +183,7 @@ tooltip label {
   padding-left: 4px;
   padding-right: 12px;
   color: @on_surface;
+  font-size: 18px;
 }
 
 #network,
@@ -190,6 +192,7 @@ tooltip label {
   padding-left: 4px;
   padding-right: 10px;
   color: @on_surface;
+  font-size: 18px;
 }
 
 #wireplumber,
@@ -247,7 +250,8 @@ window#waybar.topbar #custom-textBrowser {
   margin: 1px;
   padding-left: 2px;
   padding-right: 2px;
-  color: @on_surface
+  color: @on_surface;
+  font-size: 18px;
 }
 
 /* -------------- Hover -------------- */
@@ -328,10 +332,6 @@ window#waybar.topbar #custom-textBrowser:hover {
     background-color: green;
     color: @on_surface;
   }
-}
-
-#battery {
-  border-radius: 4px;
 }
 
 #battery.charging {
