@@ -1,6 +1,6 @@
 {
     /* === group/left === */
-    "group/pod": {
+    "group/music": {
         "orientation": "horizontal",
         "drawer": {
             "transition-duration": 500,
@@ -27,7 +27,7 @@
         "modules": [
             "image#launcher",
             "group/menu",
-            "group/pod"
+            "group/music"
         ]
     },
     /* === group/center === */
@@ -66,6 +66,7 @@
         "orientation": "horizontal",
         "modules": [
             "idle_inhibitor",
+            "inhibitor",
             "power-profiles-daemon",
             "temperature",
             "cpu",
@@ -148,9 +149,10 @@
         "tooltip-format": "Firefox"
     },
     "custom/pod": {
-        "format": "󰲑",
-        "icon-size": 36,
-        "spacing": 2,
+        "format": "{icon}",
+        "format-icons": [
+            "󰲑"
+        ],
         "tooltip": false
     },
     "mpd": {
@@ -207,6 +209,14 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
+        }
+    },
+    "inhibitor": {
+        "what": ["sleep"],
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰳌",
+            "deactivated": "󱦛"
         }
     },
     "power-profiles-daemon": {

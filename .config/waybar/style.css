@@ -43,6 +43,7 @@ tooltip label {
 }
 
 #left,
+#center,
 #right {
   border-radius: 10px;
   padding: 0 4px;
@@ -121,13 +122,13 @@ tooltip label {
   color: @on_surface;
 }
 
-#custom-pod {
+#custom-pod label{
   margin: 1px;
-  padding-top: 2px;
+  padding-bottom: 2px;
   padding-left: 8px;
   padding-right: 8px;
-  font-size: 32px;
   color: @on_surface;
+  font-size: 19px;
 }
 
 #mpd {
@@ -152,11 +153,20 @@ tooltip label {
 }
 
 /* 部分模块的图标并不居中需要调整 */
+#inhibitor {
+  margin: 1px;
+  padding-left: 6px;
+  padding-right: 7px;
+  color: @on_surface;
+  font-size: 18px;
+}
+
 #idle_inhibitor {
   margin: 1px;
   padding-left: 2px;
   padding-right: 10px;
   color: @on_surface;
+  font-size: 18px;
 }
 
 #power-profiles-daemon {
@@ -164,6 +174,7 @@ tooltip label {
   padding-left: 4px;
   padding-right: 9px;
   color: @on_surface;
+  font-size: 18px;
 }
 
 #battery {
@@ -245,6 +256,7 @@ window#waybar.topbar #custom-launcher:hover,
 window#waybar.topbar #custom-pod:hover,
 window#waybar.topbar #mpd:hover,
 window#waybar.topbar #power-profiles-daemon:hover,
+window#waybar.topbar #inhibitor:hover,
 window#waybar.topbar #idle_inhibitor:hover,
 window#waybar.topbar #temperature:hover,
 window#waybar.topbar #cpu:hover,
@@ -368,6 +380,7 @@ label:focus {
   color: @error;
 }
 
+#inhibitor.activated,
 #idle_inhibitor.activated {
   color: @primary;
 }
