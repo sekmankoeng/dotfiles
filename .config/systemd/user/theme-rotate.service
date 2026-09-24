@@ -1,0 +1,9 @@
+[Unit]
+Description=Matugen + Awww + Waybar: Theme rotation
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+# 修改这里：改为你的壁纸文件夹路径
+ExecStart=/bin/bash -c 'matugen --config "/home/swq/.config/matugen/config.toml" --prefer lightness image "$(find /home/swq/Pictures/Wallpapers -maxdepth 1 -type f \\( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \\) | shuf -n 1)"'
+

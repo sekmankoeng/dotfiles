@@ -1,0 +1,7 @@
+[Unit]
+Description=USB notification for %i
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/usb-notify.sh %i
+

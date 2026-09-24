@@ -1,0 +1,13 @@
+[Unit]
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swayidle -w timeout 900 'swaylock -f' \
+                                timeout 1800 'niri msg action power-off-monitors' \
+                                resume 'niri msg action power-on-monitors' \
+                                timeout 3600 'systemctl suspend' \
+                                before-sleep 'swaylock -f' \
+                                lock 'swaylock -f'
+Restart=on-failure
