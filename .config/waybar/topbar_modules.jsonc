@@ -218,16 +218,16 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "󱁝",
+            "deactivated": "󱠨"
         }
     },
     "inhibitor": {
         "what": ["sleep"],
         "format": "{icon}",
         "format-icons": {
-            "activated": "󰳌",
-            "deactivated": "󱦛"
+            "activated": "󰦝",
+            "deactivated": "󱦚"
         }
     },
     "power-profiles-daemon": {
@@ -400,8 +400,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span><b>{:%H:%M %p}</b></span>",
-        "format-alt": "<span><b>{:%a %b %d %R %p}</b></span>",
+        "format": "<span size='13pt'><b>{:%H:%M %p}</b></span>",
+        "format-alt": "<span size='13pt'><b>{:%a %b %d %R %p}</b></span>",
         "tooltip-format": "<span><small>{calendar}</small></span>",
         "calendar": {
             "mode": "year",

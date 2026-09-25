@@ -128,7 +128,7 @@ tooltip label {
   padding-left: 8px;
   padding-right: 8px;
   color: @on_surface;
-  font-size: 19px;
+  font-size: 20px;
 }
 
 #mpd {
@@ -154,26 +154,19 @@ tooltip label {
 }
 
 /* 部分模块的图标并不居中需要调整 */
-#inhibitor {
-  margin: 1px;
-  padding-left: 6px;
-  padding-right: 7px;
-  color: @on_surface;
-  font-size: 18px;
-}
-
+#inhibitor,
 #idle_inhibitor {
   margin: 1px;
-  padding-left: 2px;
-  padding-right: 10px;
+  padding-left: 6px;
+  padding-right: 8px;
   color: @on_surface;
   font-size: 18px;
 }
 
 #power-profiles-daemon {
   margin: 1px;
-  padding-left: 4px;
-  padding-right: 9px;
+  padding-left: 5px;
+  padding-right: 10px;
   color: @on_surface;
   font-size: 18px;
 }
@@ -201,7 +194,7 @@ tooltip label {
   padding-left: 4px;
   padding-right: 6px;
   color: @on_surface;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #pulseaudio-slider,
@@ -253,7 +246,6 @@ window#waybar.topbar #custom-textBrowser {
   padding-left: 2px;
   padding-right: 2px;
   color: @on_surface;
-  font-size: 18px;
 }
 
 /* -------------- Hover -------------- */
@@ -285,11 +277,17 @@ window#waybar.topbar #custom-textEdit:hover,
 window#waybar.topbar #custom-textMusic:hover,
 window#waybar.topbar #custom-textBrowser:hover {
   background: alpha(@surface_container_high, 0.5);
-  ;
   color: alpha(@on_surface, 0.5);
   margin: 1px;
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(0, 0, 0, 0.5);
+}
+
+window#waybar.topbar #custom-textFile label,
+window#waybar.topbar #custom-textEdit label,
+window#waybar.topbar #custom-textMusic label,
+window#waybar.topbar #custom-textBrowser label {
+  font-size: 18px;
 }
 
 /**
