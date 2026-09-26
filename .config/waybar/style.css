@@ -250,6 +250,7 @@ window#waybar.topbar #custom-textBrowser {
   padding-left: 2px;
   padding-right: 2px;
   color: @on_surface;
+  font-size: 18px;
   font-weight: bold;
 }
 
