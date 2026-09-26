@@ -137,7 +137,7 @@ tooltip label {
 #mpd {
   margin: 1px;
   padding-top: 2px;
-  padding-left: 10px;
+  padding-left: 8px;
   padding-right: 4px;
   color: @on_surface;
   font-size: 18px;
