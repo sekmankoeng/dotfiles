@@ -105,7 +105,9 @@ input {
     position x=2560 y=0
     variable-refresh-rate
 }
-
+output "HDMI-A-1" {
+    mode "2560x1440@59.951"
+}
 // === Miscellaneous ===
 prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

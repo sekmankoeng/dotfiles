@@ -6,9 +6,8 @@
 binds {
     // === System & Overview ===
     Mod+D repeat=false { toggle-overview; }
-    Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+Slash { show-hotkey-overlay; }
-    
+
     // === Application Launchers === 
     Mod+F1 hotkey-overlay-title="Toggle Input Method" {
         spawn-sh "fcitx5 -rd";
@@ -70,6 +69,7 @@ binds {
     Mod+Ctrl+End  { move-column-to-last; }
 
     // === Monitor Navigation ===
+    Mod+Tab   { focus-monitor-next; }
     Mod+Ctrl+Left  { focus-monitor-left; }
     //Mod+Ctrl+Down  { focus-monitor-down; }
     //Mod+Ctrl+Up    { focus-monitor-up; }
