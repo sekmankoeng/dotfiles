@@ -311,7 +311,9 @@ window#waybar.topbar #custom-textBrowser label {
 }
 
 #clock {
-  padding: 0 10px;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
   font-size: 16px;
 }
 
