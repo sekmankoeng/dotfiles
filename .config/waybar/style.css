@@ -110,8 +110,8 @@ tooltip label {
 
 #image {
   margin: 1px;
-  padding-left: 4px;
-  padding-right: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
   color: @on_surface;
 }
 
@@ -137,6 +137,7 @@ tooltip label {
   padding-left: 4px;
   padding-right: 4px;
   color: @on_surface;
+  font-size: 18px;
 }
 
 #workspaces,
@@ -246,6 +247,7 @@ window#waybar.topbar #custom-textBrowser {
   padding-left: 2px;
   padding-right: 2px;
   color: @on_surface;
+  font-weight: bold;
 }
 
 /* -------------- Hover -------------- */
