@@ -122,12 +122,15 @@ tooltip label {
   color: @on_surface;
 }
 
-#custom-pod label{
+#custom-pod {
   margin: 1px;
-  padding-bottom: 2px;
   padding-left: 8px;
   padding-right: 8px;
   color: @on_surface;
+  font-size: 20px;
+}
+
+#custom-pod label{
   font-size: 20px;
 }
 
