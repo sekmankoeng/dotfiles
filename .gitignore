@@ -1,5 +1,5 @@
 .Trash/
 .DS_Store/
 .obsidian/
-
+.vim/plugged
 .config/mpd/mpd.log
