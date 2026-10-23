@@ -27,6 +27,7 @@
         "modules": [
             "image#launcher",
             "group/menu-group",
+            "custom/tv",
             "group/media-group"
         ]
     },
@@ -158,6 +159,13 @@
         "return-type": "plain",
         "on-click": "niri msg action spawn -- firefox",
         "tooltip-format": "Firefox"
+    },
+    "custom/tv": {
+        "format": "{icon}",
+        "format-icons": [
+            "󰟴"
+        ],
+        "on-click": "niri msg action spawn -- mpv https://gitee.com/sekmankoeng/iptv/raw/master/iptv_playlist.m3u"
     },
     "custom/pod": {
         "format": "{icon}",

@@ -57,8 +57,8 @@ tooltip label {
   color: @on_surface_variant;
   margin: 0 2px;
   /* 按钮之间的间距，不要和外层margin混淆 */
-  padding-left: 7px;
-  padding-right: 6px;
+  padding-left: 6px;
+  padding-right: 10px;
   border-bottom: transparent;
   text-shadow: none;
   box-shadow: none;
@@ -108,6 +108,14 @@ tooltip label {
   color: @on_surface;
 }
 
+#custom-tv {
+  margin: 1px;
+  padding-left: 4px;
+  padding-right: 8px;
+  color: @on_surface;
+  font-size: 20px;
+}
+
 #image {
   margin: 1px;
   padding-left: 6px;
@@ -127,10 +135,6 @@ tooltip label {
   padding-left: 8px;
   padding-right: 8px;
   color: @on_surface;
-  font-size: 20px;
-}
-
-#custom-pod label{
   font-size: 20px;
 }
 
@@ -258,6 +262,7 @@ window#waybar.topbar #custom-textBrowser {
 window#waybar.topbar #image:hover,
 window#waybar.topbar #custom-launcher:hover,
 window#waybar.topbar #custom-pod:hover,
+window#waybar.topbar #custom-tv:hover,
 window#waybar.topbar #mpd:hover,
 window#waybar.topbar #power-profiles-daemon:hover,
 window#waybar.topbar #inhibitor:hover,
