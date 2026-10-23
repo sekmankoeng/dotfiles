@@ -165,7 +165,7 @@
         "format-icons": [
             "󰟴"
         ],
-        "on-click": "niri msg action spawn -- mpv https://gitee.com/sekmankoeng/iptv/raw/master/iptv_playlist.m3u"
+        "on-click": "niri msg action spawn -- /home/swq/.config/niri/scripts/launch_tv.sh"
     },
     "custom/pod": {
         "format": "{icon}",
