@@ -1,0 +1,23 @@
+label {
+  monitor =
+  text = $TIME
+  font_size = 100
+  position = 0, 80
+  # text = 输入密码解锁
+  # color = rgb(ffffff)
+}
+
+input-field {
+  # hide_input = true
+  monitor =
+  size = 20%, 5%
+  # dots_size = 0.08
+  position = 0, -80
+}
+
+background {
+  monitor = # monitor-agnostic
+  path = ~/Pictures/Wallpapers/wallpaper-light.png
+  blur_passes = 1
+  blur_size = 7
+}
