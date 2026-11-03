@@ -1,0 +1,24 @@
+<type>(<scope>): <subject>
+
+# Body: explain what and why, not how; wrap at 72 chars
+#
+# Footer examples:
+# Fixes #123
+# BREAKING CHANGE: ...
+# Co-authored-by: User <user@example.com>
+#
+# Valid types:
+#   feat     new feature
+#   fix      bug fix
+#   docs     documentation
+#   style    formatting
+#   refactor refactor code
+#   perf     performance
+#   test     tests
+#   build    build/deps
+#   ci       CI config
+#   chore    maintenance
+#   revert   revert commit
+#
+# Scope: optional, omit parentheses if not applicable
+# Subject: imperative, max 50 chars, no trailing period
