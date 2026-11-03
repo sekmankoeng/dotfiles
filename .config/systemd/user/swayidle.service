@@ -4,10 +4,9 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/swayidle -w timeout 900 'swaylock -f' \
+ExecStart=/usr/bin/swayidle -w timeout 900 'loginctl lock-session' \
                                 timeout 1800 'brightnessctl --save && niri msg action power-off-monitors' \
                                 resume 'niri msg action power-on-monitors && sleep 0.2 && brightnessctl --restore' \
                                 timeout 3600 'systemctl suspend' \
-                                before-sleep 'swaylock -f' \
-                                lock 'swaylock -f'
+                                before-sleep 'loginctl lock-session'
 Restart=on-failure
