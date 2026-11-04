@@ -8,5 +8,5 @@ ExecStart=/usr/bin/swayidle -w timeout 900 'loginctl lock-session' \
                                 timeout 1800 'brightnessctl --save && niri msg action power-off-monitors' \
                                 resume 'niri msg action power-on-monitors && sleep 0.2 && brightnessctl --restore' \
                                 timeout 3600 'systemctl suspend' \
-                                before-sleep 'loginctl lock-session'
+                                before-sleep '/usr/local/bin/before-sleep-lock-wait.sh'
 Restart=on-failure

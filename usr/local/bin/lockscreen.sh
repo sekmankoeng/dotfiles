@@ -20,5 +20,6 @@ hyprlock -q
 ret=$?
 
 if [[ $ret -eq 0 ]]; then
+    echo "lockscreen.sh: Unlock successful"
     notify-send -a "BreakingBad" -i /home/swq/.config/hypr/images/avatar/heisenberg.png "✅ 登录成功" "You're goddamn right."
 fi
