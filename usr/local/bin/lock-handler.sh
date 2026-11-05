@@ -73,7 +73,7 @@ echo "PID lock=$PID_LOCK unlock=$PID_UNLOCK"
 
 # ========== 主循环 ==========
 while true; do
-    if read -r -t 2 -u9 evt; then
+    if read -r -u9 evt; then
         case "$evt" in
             LOCK)
                 echo ">> Session Lock signal received"
