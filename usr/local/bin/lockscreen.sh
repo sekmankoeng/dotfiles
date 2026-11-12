@@ -16,7 +16,7 @@ if pidof -x hyprlock >/dev/null; then
     exit 0
 fi
 
-hyprlock -q
+systemd-run --user --scope hyprlock -q &
 ret=$?
 
 if [[ $ret -eq 0 ]]; then
