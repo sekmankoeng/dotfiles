@@ -30,7 +30,6 @@
       "on-click": "niri msg action spawn -- fuzzel --show drun",
       "tooltip": false
     },
-    
     "custom/nautilus": {
       "format": "󰀶",
       "icon-size": 36,
@@ -48,7 +47,7 @@
 
     "custom/trash": {
       "format": "󰩺",
-      "icon-size": 36,
+      "icon-size": 60,
       "spacing": 2,
       "on-click": "niri msg action spawn -- nautilus trash://",
       "tooltip": false

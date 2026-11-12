@@ -24,8 +24,8 @@ wifi_list=$(nmcli -t -f SECURITY,SIGNAL,SSID device wifi list \
 )
 
 if [[ -z "$wifi_list" ]]; then
-  notify-send "WiFi" "未扫描到WiFi网络"
-  exit 1
+    notify-send "WiFi" "未扫描到WiFi网络"
+    exit 1
 fi
 
 # 3. 选择wifi
@@ -35,20 +35,20 @@ CHOSEN=$(echo "$wifi_list" | fuzzel --dmenu)
 # 4. 判断是新填写的隐藏SSID还是选择的已扫描到的SSID
 RE='^(🔒|🔓)[[:space:]]+\|[[:space:]]+([^|]+)[[:space:]]([0-9]{1,3})%[[:space:]]+\|[[:space:]]+(.*)$'
 if [[ "$CHOSEN" =~ $RE ]]; then
-  ICON="${BASH_REMATCH[1]}"
-  SSID="${BASH_REMATCH[4]}"
+    ICON="${BASH_REMATCH[1]}"
+    SSID="${BASH_REMATCH[4]}"
 else
-  SSID="$CHOSEN"
+    SSID="$CHOSEN"
 fi
 
 # 尝试连接：已保存过的网络直接连接
 if nmcli connection show "$SSID" >/dev/null 2>&1; then
-  if ! nmcli connection up "$SSID"; then
-    notify-send -a "waybar" -u normal "WiFi" "无限网络连接失败：$SSID，该连接配置异常，请尝试删除后重新连接"
-    exit 1
-  fi
-  notify-send -a "waybar" -u normal "WiFi" "无线网络连接成功：$SSID"
-  exit 0
+    if ! nmcli connection up "$SSID"; then
+        notify-send -a "waybar" -u normal "WiFi" "无限网络连接失败：$SSID，该连接配置异常，请尝试删除后重新连接"
+        exit 1
+    fi
+    notify-send -a "waybar" -u normal "WiFi" "无线网络连接成功：$SSID"
+    exit 0
 fi
 
 # 5. 分支：连接无密码的开放WiFi
@@ -74,16 +74,16 @@ HINT_LIST=$( printf "%s\n%s" "$SSID_HINT" "$HIDE_HINT" )
 # PASSWORD=$(echo "${HINT_LIST}" | wofi --style=${HOME}/.config/wofi/wifi_auth.css --dmenu --height=200 --password --prompt="🔑 请输入WiFi密码")
 PASSWORD=$(fuzzel --dmenu --prompt-only="WiFi密码: " --password --placeholder="请输入WiFi密码")
 if [[ -z "$PASSWORD" ]]; then
-  notify-send -a "waybar" -u normal "WiFi" "无限网络连接失败：$SSID，无效密码"
-  exit 1
+    notify-send -a "waybar" -u normal "WiFi" "无限网络连接失败：$SSID，无效密码"
+    exit 1
 fi
 
 # nmcli新建连接并连接
 if nmcli device wifi connect "$SSID" password "$PASSWORD";then
-  notify-send -a "waybar" -u normal "WiFi" "无限网络连接成功：$SSID"
+    notify-send -a "waybar" -u normal "WiFi" "无限网络连接成功：$SSID"
 else
-  # 密码错误时，需要清除nmcli新建的连接配置，否则下次连接同一SSID时会直接使用错误的密码尝试连接，导致连接失败。
-  nmcli connection delete "$SSID" >/dev/null 2>&1 || true
-  notify-send -a "waybar" -u normal "WiFi" "无限网络连接失败：$SSID，密码错误或无法接入"
-  exit 1
+    # 密码错误时，需要清除nmcli新建的连接配置，否则下次连接同一SSID时会直接使用错误的密码尝试连接，导致连接失败。
+    nmcli connection delete "$SSID" >/dev/null 2>&1 || true
+    notify-send -a "waybar" -u normal "WiFi" "无限网络连接失败：$SSID，密码错误或无法接入"
+    exit 1
 fi

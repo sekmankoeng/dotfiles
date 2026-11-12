@@ -490,7 +490,7 @@ window#waybar.dock #custom-spotlight:hover {
 
 window#waybar.dock #custom-separator label,
 window#waybar.dock #custom-spotlight label {
-  font-size: 32px;
+  font-size: 60px;
 }
 
 window#waybar.dock #custom-nautilus label {

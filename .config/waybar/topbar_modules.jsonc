@@ -26,6 +26,7 @@
         "orientation": "horizontal",
         "modules": [
             "image#launcher",
+            /* "custom/launcher",*/
             "group/menu-group",
             "custom/tv",
             "group/media-group"
@@ -131,7 +132,10 @@
             "▆",
             "▇",
             "█"
-        ]
+        ],
+        "actions": {
+            "on-click-right": "mode"
+        }
     },
     "custom/textFile": {
         "exec": "echo 'File'",
@@ -165,6 +169,7 @@
         "format-icons": [
             "󰟴"
         ],
+        //"on-click": "niri msg action spawn -- mpv https://gitee.com/sekmankoeng/iptv/raw/master/iptv_playlist.m3u"
         "on-click": "niri msg action spawn -- /home/swq/.config/niri/scripts/launch_tv.sh"
     },
     "custom/pod": {
@@ -408,8 +413,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span size='13pt'><b>{:%H:%M %p}</b></span>",
-        "format-alt": "<span size='13pt'><b>{:%a %b %d %R %p}</b></span>",
+        "format": "<span size='13pt'><b>{:%R}</b></span>",
+        "format-alt": "<span size='13pt'><b>{:%a %b %d %I:%M %p}</b></span>",
         "tooltip-format": "<span><small>{calendar}</small></span>",
         "calendar": {
             "mode": "year",
