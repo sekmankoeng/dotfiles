@@ -33,11 +33,11 @@ binds {
     }
 
     Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
-        spawn-sh "systemctl --user start theme-rotate";
+        spawn-sh "systemctl --user start theme-rotate.service";
     }
 
     Super+X hotkey-overlay-title="Fake ScreenSaver" {
-        spawn-sh "kitty --title screen-saver --single-instance tuigreet --config /etc/tuigreet/fake-screen-save.toml --mock";
+        spawn-sh "kitty --title screen-saver --single-instance tuigreet --config /etc/tuigreet/config.toml --mock";
     }
     Mod+Space hotkey-overlay-title="Application Launcher" { spawn "fuzzel"; }
     // === Application Launchers ===
@@ -46,12 +46,12 @@ binds {
     }
 
     Mod+Y hotkey-overlay-title="Browse Wallpapers" {
-        spawn "nautilus" "/home/swq/Pictures/Wallpapers";
+        spawn-sh "kitty --title yazi --single-instance yazi /home/swq/Pictures/Wallpapers";
     }
 
     // === Security ===
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
-        spawn "swaylock";
+        spawn "loginctl" "lock-session";
     }
 
     // === Audio Controls ===

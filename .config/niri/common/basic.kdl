@@ -133,8 +133,6 @@ debug {
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
-  GTK_IM_MODULE
-  QT_IM_MODULE "fcitx"
   XMODIFIERS "@im=fcitx"
   INPUT_METHOD "fcitx"
   FCITX5_USE_WAYLAND "1"
