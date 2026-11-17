@@ -1,6 +1,6 @@
 ENV{UDISKS_IGNORE}=="1", GOTO="usb_notify_end"
 
 ACTION=="add|remove", SUBSYSTEM=="block", ENV{ID_BUS}=="usb", ENV{ID_FS_USAGE}=="filesystem", \
-RUN+="/usr/bin/systemctl --user -M swq@ start usb-notify@$env{ACTION}:$env{ID_FS_LABEL}.service"
+RUN+="/usr/local/bin/usb-udev-trigger.sh $env{ACTION} $env{ID_FS_LABEL}"
 
 LABEL="usb_notify_end"
