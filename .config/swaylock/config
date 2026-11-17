@@ -1,5 +1,5 @@
 # --- 锁屏背景图片 ---
-image=/home/swq/Pictures/Images/desktop-base/login-background.svg
+image=~/Pictures/Images/desktop-base/login-background.svg
 
 # --- 指示器外观设置 ---
 # indicator-idle-visible

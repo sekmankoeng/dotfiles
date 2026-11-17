@@ -7,4 +7,4 @@ set = true
 input_path = './templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 #post_hook = 'pkill -SIGUSR2 waybar'
-post_hook = 'bash /home/swq/.config/matugen/scripts/theme_flush.sh 2>&1'
+post_hook = 'bash ~/.config/matugen/scripts/theme_flush.sh &>/dev/null'

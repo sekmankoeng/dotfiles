@@ -14,5 +14,5 @@ if ! has_waybar_block_inhibit; then
 fi
 
 # 无抑制，执行matugen
-WALLPAPER=$(find /home/swq/Pictures/Wallpapers -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | shuf -n 1)
-matugen --config "/home/swq/.config/matugen/config.toml" --prefer lightness image "$WALLPAPER"
+WALLPAPER=$(find $HOME/Pictures/Wallpapers -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | shuf -n 1)
+matugen --config "$HOME/.config/matugen/config.toml" --prefer lightness image "$WALLPAPER"

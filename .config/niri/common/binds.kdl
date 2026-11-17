@@ -19,7 +19,7 @@ binds {
     }
     Mod+A hotkey-overlay-title="Open Terminal: Alacritty" { spawn "alacritty"; }
     Mod+M hotkey-overlay-title="Music Player" {
-        spawn-sh "kitty --title cava --single-instance --session /home/swq/.config/kitty/sessions/music-player.session"
+        spawn-sh "kitty --title cava --single-instance --session ~/.config/kitty/sessions/music-player.session"
     }
     Mod+N hotkey-overlay-title="Vim" {
         spawn-sh "kitty --title vim --single-instance --execute vim";
@@ -31,7 +31,7 @@ binds {
     // === Security ===
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete hotkey-overlay-title="Logout" {
-        spawn "/home/swq/.config/wlogout/scripts/wlogout_toggle.sh";
+        spawn "~/.config/wlogout/scripts/wlogout_toggle.sh";
     }
 
     // === Window Management ===

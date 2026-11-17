@@ -5,4 +5,4 @@ After=graphical-session.target
 [Service]
 Type=oneshot
 # 修改这里：改为你的壁纸文件夹路径
-ExecStart=/home/swq/.config/matugen/scripts/matugen_startup.sh
+ExecStart=%h/.config/matugen/scripts/matugen_startup.sh

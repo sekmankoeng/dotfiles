@@ -17,19 +17,19 @@ include "common/recent-windows.kdl"
 binds {
     // === System & Overview ===
     Mod+F12 {
-        spawn-sh "/home/swq/.config/waybar/scripts/waybar_toggle.sh topbar toggle";
+        spawn-sh "~/.config/waybar/scripts/waybar_toggle.sh topbar toggle";
     }
 
     Mod+F11 {
-        spawn-sh "/home/swq/.config/waybar/scripts/waybar_toggle.sh dock toggle";
+        spawn-sh "~/.config/waybar/scripts/waybar_toggle.sh dock toggle";
     }
 
     Mod+Ctrl+F12 {
-        spawn-sh "/home/swq/.config/waybar/scripts/waybar_toggle.sh topbar reload";
+        spawn-sh "~/.config/waybar/scripts/waybar_toggle.sh topbar reload";
     }
 
     Mod+Ctrl+F11 {
-        spawn-sh "/home/swq/.config/waybar/scripts/waybar_toggle.sh dock reload";
+        spawn-sh "~/.config/waybar/scripts/waybar_toggle.sh dock reload";
     }
 
     Mod+Shift+W hotkey-overlay-title="Rotate Wallpaper" {
@@ -46,7 +46,7 @@ binds {
     }
 
     Mod+Y hotkey-overlay-title="Browse Wallpapers" {
-        spawn-sh "kitty --title yazi --single-instance yazi /home/swq/Pictures/Wallpapers";
+        spawn-sh "kitty --title yazi --single-instance yazi ~/Pictures/Wallpapers";
     }
 
     // === Security ===
@@ -105,4 +105,4 @@ spawn-at-startup "mako"
 spawn-at-startup "fcitx5"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "/home/swq/.config/waybar/scripts/waybar_toggle.sh" "topbar" "reload"
+spawn-at-startup "~/.config/waybar/scripts/waybar_toggle.sh" "topbar" "reload"
