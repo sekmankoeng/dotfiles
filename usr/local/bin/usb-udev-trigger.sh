@@ -14,5 +14,4 @@ if [[ -z "${ACTION}" ]]; then
     exit 1
 fi
 
-echo "Now start service, username:${USERNAME}, usb-notify@${ACTION}:${LABEL}.service"
 systemctl --user -M "${USERNAME}@" start usb-notify@${ACTION}:${LABEL}.service
